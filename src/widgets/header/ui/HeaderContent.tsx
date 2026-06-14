@@ -4,7 +4,7 @@ import Bell from "../icons/Bell";
 
 function HeaderContent() {
   return (
-    <header className="bg-[#0B1326] p-4 flex justify-between">
+    <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8">
         <h3 className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none">
           AlphaTrade
