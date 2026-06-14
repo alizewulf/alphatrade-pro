@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #3B82F6;
+    --color-secondary: #10B981;
+    --color-tertiary: #EF4444;
+    --color-neutral: #0F172A;
+    --font-inter: "Inter", sans-serif;
+    --color-navbutton: #4D8EFF;
+    --color-headerButton: #C2C6D6;
+    --color-appinput-bg: #171F33;
+}
