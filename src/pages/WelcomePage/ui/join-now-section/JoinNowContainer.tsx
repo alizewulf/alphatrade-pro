@@ -3,7 +3,7 @@ import JoinNowHeading from "./JoinNowHeading";
 
 function JoinNowContainer() {
   return (
-    <section className="px-8 bg-bgcolor font-inter w-full">
+    <section className="px-8 bg-bgcolor pt-40 font-inter w-full">
       <div className="bg-[linear-gradient(90deg,#4D8EFF_0%,#4D8EFF_50%,#00A572_100%)] rounded-4xl flex justify-between">
         <div className="w-1/2 p-10 flex flex-col gap-4">
           <JoinNowHeading />

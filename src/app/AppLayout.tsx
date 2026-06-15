@@ -1,17 +1,30 @@
-import { HeaderContent } from "../widgets/header"
-import { FooterContent } from "../widgets/footer"
-import { Outlet } from "react-router"
+import { HeaderContent } from "../widgets/header";
+import { FooterContent } from "../widgets/footer";
+import { Outlet, useMatches } from "react-router";
+
+type RouteHandle = {
+  footer?: "primary" | "secondary";
+};
 
 function AppLayout() {
+  const matches = useMatches() as Array<{
+    handle?: RouteHandle;
+  }>;
+
+  const footerVariant =
+    matches.at(-1)?.handle?.footer ?? "primary";
+
   return (
     <>
-        <HeaderContent></HeaderContent>
-        <main>
-          <Outlet/>
-        </main>
-        <FooterContent></FooterContent>
+      <HeaderContent />
+
+      <main>
+        <Outlet />
+      </main>
+
+      <FooterContent variant={footerVariant} />
     </>
-  )
+  );
 }
 
 export default AppLayout

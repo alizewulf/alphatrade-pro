@@ -1,18 +1,23 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import WelcomePage from "@/pages/WelcomePage/WelcomePage";
+import { createBrowserRouter, Navigate } from "react-router";
 import AppLayout from "@/app/AppLayout";
+import WelcomePage from "@/pages/WelcomePage/WelcomePage";
 
-function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/home" element={<WelcomePage />} />
-          <Route path="/" element={<Navigate to="/home" replace />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default AppRoutes;
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "home",
+        element: <WelcomePage />,
+        handle: {
+          footer: "primary",
+        },
+      },
+      {
+        index: true,
+        element: <Navigate to="/home" replace />,
+      },
+    ],
+  },
+]);

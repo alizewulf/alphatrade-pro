@@ -1,7 +1,15 @@
-function FooterContent() {
+import PrimaryFooter from "./PrimaryFooter";
+import SecondaryFooter from "./SecondaryFooter";
+
+type FooterContentProps = {
+  variant: "primary" | "secondary";
+};
+function FooterContent({ variant }: FooterContentProps) {
   return (
-    <div>FooterContent</div>
-  )
+    <footer>
+      {variant === "primary" ? <PrimaryFooter /> : <SecondaryFooter />}
+    </footer>
+  );
 }
 
-export default FooterContent
+export default FooterContent;
