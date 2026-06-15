@@ -3,17 +3,16 @@ import { FooterContent } from "../widgets/footer";
 import { Outlet, useMatches } from "react-router";
 
 type RouteHandle = {
-  footer?: "primary" | "secondary";
+  showSocials?: boolean;
 };
 
 function AppLayout() {
   const matches = useMatches() as Array<{
     handle?: RouteHandle;
   }>;
+  const lastMatch = matches.at(-1);
 
-  const footerVariant =
-    matches.at(-1)?.handle?.footer ?? "primary";
-
+  const showSocials = lastMatch?.handle?.showSocials ?? true;
   return (
     <>
       <HeaderContent />
@@ -22,9 +21,9 @@ function AppLayout() {
         <Outlet />
       </main>
 
-      <FooterContent variant={footerVariant} />
+      <FooterContent showSocials={showSocials} />
     </>
   );
 }
 
-export default AppLayout
+export default AppLayout;

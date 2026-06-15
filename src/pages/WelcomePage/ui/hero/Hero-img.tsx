@@ -15,7 +15,7 @@ function HeroImg() {
           <ArrowIcon scheme='positive'/>
         </div>
         <div className="flex font-inter font-semibold flex-col">
-          <span className="text-headerButton leading-3 tracking-[0.6px]">
+          <span className="text-paragraph leading-3 tracking-[0.6px]">
             AAPL
           </span>
           <span className="leading-7 text-xl text-[#4EDEA3]">

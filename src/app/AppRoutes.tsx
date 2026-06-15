@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
         path: "home",
         element: <WelcomePage />,
         handle: {
-          footer: "primary",
+          showSocials: true
         },
       },
       {

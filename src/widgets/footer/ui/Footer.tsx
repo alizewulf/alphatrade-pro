@@ -1,13 +1,28 @@
-import PrimaryFooter from "./PrimaryFooter";
-import SecondaryFooter from "./SecondaryFooter";
+import FooterButton from "./Button";
+import EarthSVG from "./icons/EarthSVG";
+import ShareSVG from "./icons/ShareSVG";
+import InformationContainer from "./InformationContainer";
+import LinksContainer from "./LinksContainer";
 
 type FooterContentProps = {
-  variant: "primary" | "secondary";
+  showSocials?: boolean;
 };
-function FooterContent({ variant }: FooterContentProps) {
+
+function FooterContent({ showSocials = true }: FooterContentProps) {
   return (
-    <footer>
-      {variant === "primary" ? <PrimaryFooter /> : <SecondaryFooter />}
+    <footer className="bg-[#060E20] font-inter items-center py-10 px-8 flex justify-between">
+      <InformationContainer />
+      <LinksContainer />
+      {showSocials && (
+        <div className="flex gap-4">
+          <FooterButton>
+            <EarthSVG />
+          </FooterButton>
+          <FooterButton>
+            <ShareSVG />
+          </FooterButton>
+        </div>
+      )}
     </footer>
   );
 }

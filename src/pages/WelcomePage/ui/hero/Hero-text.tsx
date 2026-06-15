@@ -5,7 +5,7 @@ function HeroText() {
         Trade with <span className="text-[#ADC6FF]">Precision</span>
       </h1>
 
-      <p className="w-100 text-headerButton text-lg leading-[28.8px]">
+      <p className="w-100 text-paragraph text-lg leading-[28.8px]">
         Experience the next generation of financial execution. Real-time
         data, lightning-fast order processing, and institutional-grade
         analytics for everyone.

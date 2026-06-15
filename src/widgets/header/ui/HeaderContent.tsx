@@ -11,8 +11,8 @@ function HeaderContent() {
         </h3>
         <nav className="flex gap-6 items-center">
           <p className="text-[#ADC6FF] underline cursor-pointer">Dashboard</p>
-          <p className="text-headerButton cursor-pointer">Markets</p>
-          <p className="text-headerButton cursor-pointer">Portfolio</p>
+          <p className="text-paragraph cursor-pointer">Markets</p>
+          <p className="text-paragraph cursor-pointer">Portfolio</p>
         </nav>
       </div>
 
@@ -21,7 +21,7 @@ function HeaderContent() {
         <button className="cursor-pointer">
           <Bell/>
         </button>
-        <button className="font-inter text-base leading-6 text-headerButton">Support</button>
+        <button className="font-inter text-base leading-6 text-paragraph">Support</button>
         <NavButton>Execute Trade</NavButton>
       </div>
     </header>
