@@ -1,14 +1,14 @@
 type StatsListProps = {
-    title: string,
-    subtitle: string,
-    isCentral?: boolean
+  title: string
+  subtitle: string
+  gap?: boolean
 }
 
-function StatsList({title, subtitle, isCentral}:StatsListProps) {
+function StatsList({ title, subtitle, gap }: StatsListProps) {
   return (
-    <div className={`flex font-inter flex-col ${isCentral && "border-r border-l border-[#424754] px-6"}`}>
-        <span className="text-[#DAE2FD] text-xl leading-7 font-semibold">{title}</span>
-        <p className="text-headerButton text-sm leading-5.5 capitalize">{subtitle}</p>
+    <div className={`flex flex-col ${gap ? "gap-4" : ""}`}>
+      <span className="text-[#DAE2FD] text-xl leading-7 font-semibold">{title}</span>
+      <p className="text-headerButton text-sm leading-6">{subtitle}</p>
     </div>
   )
 }

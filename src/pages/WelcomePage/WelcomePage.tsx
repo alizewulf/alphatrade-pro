@@ -6,6 +6,8 @@ import StatsList from "./ui/hero/StatsList";
 import HighlightsItemContainer from "./ui/highlight-section/Highlights-item-wrapper";
 import { StartTrading } from "@/features/start-trading";
 import { TryDemoButton } from "@/features/try-demo";
+import BenefitsContainer from "./ui/benefits/BenefitsContainer";
+import JoinNowContainer from "./ui/join-now-section/JoinNowContainer";
 
 function WelcomePage() {
   return (
@@ -26,7 +28,6 @@ function WelcomePage() {
             <StatsList
               title="20ms"
               subtitle="Execution Speed"
-              isCentral={true}
             />
             <StatsList title="24/7" subtitle="Expert Support" />
           </div>
@@ -40,6 +41,10 @@ function WelcomePage() {
           <HighlightsItemContainer/>
         </div>
       </section>
+
+      <BenefitsContainer/>
+
+      <JoinNowContainer/>
     </>
   );
 }
