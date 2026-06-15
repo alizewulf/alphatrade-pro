@@ -1,16 +1,14 @@
-import type { ReactNode } from "react"
 import { HeaderContent } from "../widgets/header"
 import { FooterContent } from "../widgets/footer"
+import { Outlet } from "react-router"
 
-type LayoutProps = {
-    children: ReactNode
-}
-
-function AppLayout({children}:LayoutProps) {
+function AppLayout() {
   return (
     <>
         <HeaderContent></HeaderContent>
-        <main>{children}</main>
+        <main>
+          <Outlet/>
+        </main>
         <FooterContent></FooterContent>
     </>
   )
