@@ -1,11 +1,9 @@
-import type { ReactNode } from "react"
-
 type ButtonProps = {
-    children: ReactNode
+    children: React.ReactNode
 }
 function NavButton({children}:ButtonProps) {
   return (
-    <button className="font-inter text-xs font-seimbold leading-3 tracking-[0.6px] bg-navbutton px-4 py-2 rounded-sm cursor-pointer">
+    <button className="font-inter text-xs font-seimbold leading-3 tracking-[0.6px] bg-primary-2 px-4 py-2 rounded-sm cursor-pointer">
         {children}
     </button>
 )

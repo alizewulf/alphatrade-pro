@@ -3,8 +3,9 @@ import HeroImg from "./ui/hero/Hero-img";
 import HeroText from "./ui/hero/Hero-text";
 import HighLightsText from "./ui/highlight-section/Highlights-text";
 import StatsList from "./ui/hero/StatsList";
-import WelcomeButton from "./ui/WelcomeButton";
 import HighlightsItemContainer from "./ui/highlight-section/Highlights-item-wrapper";
+import { StartTrading } from "@/features/start-trading";
+import { TryDemoButton } from "@/features/try-demo";
 
 function WelcomePage() {
   return (
@@ -16,8 +17,8 @@ function WelcomePage() {
           <HeroText />
 
           <div className="flex gap-3">
-            <WelcomeButton variant="primary">Start Trading</WelcomeButton>
-            <WelcomeButton variant="secondary">View Demo</WelcomeButton>
+            <StartTrading/>
+            <TryDemoButton/>
           </div>
 
           <div className="flex gap-6 border-t border-[#424754] pt-8.25">

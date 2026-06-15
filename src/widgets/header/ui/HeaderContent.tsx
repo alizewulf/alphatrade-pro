@@ -1,5 +1,5 @@
-import NavButton from "../../../shared/ui/button/NavButton";
-import AppInput from "../../../shared/ui/input/AppInput";
+import NavButton from "@/shared/ui/button/NavButton";
+import { AppInput } from "@/features/search";
 import Bell from "../icons/Bell";
 
 function HeaderContent() {

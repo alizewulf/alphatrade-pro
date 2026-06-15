@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import WelcomePage from "../pages/WelcomePage/WelcomePage";
-import AppLayout from "./AppLayout";
+import WelcomePage from "@/pages/WelcomePage/WelcomePage";
+import AppLayout from "@/app/AppLayout";
 
 function AppRoutes() {
   return (
