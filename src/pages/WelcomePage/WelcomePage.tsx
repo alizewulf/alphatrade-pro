@@ -1,14 +1,16 @@
-import heroIMG from "./assets/hero_img.png";
-import ConfirmationBadge from "./ui/ConfirmationBadge";
-import HeroText from "./ui/HeroText";
-import StatsList from "./ui/StatsList";
+import ConfirmationBadge from "./ui/hero/ConfirmationBadge";
+import HeroImg from "./ui/hero/Hero-img";
+import HeroText from "./ui/hero/Hero-text";
+import HighLightsText from "./ui/highlight-section/Highlights-text";
+import StatsList from "./ui/hero/StatsList";
 import WelcomeButton from "./ui/WelcomeButton";
+import HighlightsItemContainer from "./ui/highlight-section/Highlights-item-wrapper";
 
 function WelcomePage() {
   return (
     <>
-      <section className="bg-bgcolor flex justify-between py-10 px-8">
-        <div className="flex flex-col gap-[22.8px]">
+      <section className="bg-bgcolor flex justify-around py-10 px-8">
+        <div className="flex flex-col justify-center gap-[22.8px]">
           <ConfirmationBadge />
 
           <HeroText />
@@ -28,9 +30,13 @@ function WelcomePage() {
             <StatsList title="24/7" subtitle="Expert Support" />
           </div>
         </div>
+        <HeroImg />
+      </section>
 
-        <div className="w-2/3">
-          <img src={heroIMG} className="w-full object-fill" alt="hero image" />
+      <section className="bg-[#060E20] py-20 px-8 gap-10 flex flex-col">
+        <HighLightsText />
+        <div className="flex flex-row justify-between">
+          <HighlightsItemContainer/>
         </div>
       </section>
     </>
