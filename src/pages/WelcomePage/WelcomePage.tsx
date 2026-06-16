@@ -8,8 +8,17 @@ import { StartTrading } from "@/features/start-trading";
 import { TryDemoButton } from "@/features/try-demo";
 import BenefitsContainer from "./ui/benefits/BenefitsContainer";
 import JoinNowContainer from "./ui/join-now-section/JoinNowContainer";
+import getData from "@/shared/api/getUsers";
+import { useEffect } from "react";
 
 function WelcomePage() {
+  useEffect(() => {
+    const setUser = async () => {
+      const data = await getData();
+      console.log(data);
+    };
+    setUser();
+  }, []);
   return (
     <>
       <section className="bg-bgcolor flex justify-around py-10 px-8">
@@ -19,16 +28,13 @@ function WelcomePage() {
           <HeroText />
 
           <div className="flex gap-3">
-            <StartTrading/>
-            <TryDemoButton/>
+            <StartTrading />
+            <TryDemoButton />
           </div>
 
           <div className="flex gap-6 border-t border-[#424754] pt-8.25">
             <StatsList title="0.0%" subtitle="Commisions" />
-            <StatsList
-              title="20ms"
-              subtitle="Execution Speed"
-            />
+            <StatsList title="20ms" subtitle="Execution Speed" />
             <StatsList title="24/7" subtitle="Expert Support" />
           </div>
         </div>
@@ -38,13 +44,13 @@ function WelcomePage() {
       <section className="bg-[#060E20] py-20 px-8 gap-10 flex flex-col">
         <HighLightsText />
         <div className="flex flex-row justify-between">
-          <HighlightsItemContainer/>
+          <HighlightsItemContainer />
         </div>
       </section>
 
-      <BenefitsContainer/>
+      <BenefitsContainer />
 
-      <JoinNowContainer/>
+      <JoinNowContainer />
     </>
   );
 }

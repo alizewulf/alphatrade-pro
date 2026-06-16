@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #3B82F6;
-    --color-secondary: #10B981;
-    --color-tertiary: #EF4444;
-    --color-neutral: #0F172A;
-    --font-inter: "Inter", sans-serif;
-    --color-primary-2: #4D8EFF;
-    --color-paragraph: #C2C6D6;
-    --color-appinput-bg: #171F33;
-    --color-bgcolor: #0B1326;
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+  --color-tertiary: #ef4444;
+  --color-neutral: #0f172a;
+  --font-inter: "Inter", sans-serif;
+  --color-primary-2: #4d8eff;
+  --color-paragraph: #c2c6d6;
+  --color-appinput-bg: #171f33;
+  --color-bgcolor: #0b1326;
+}
+
+.scrollbar {
+  @apply scrollbar-thin scrollbar-thumb-primary-2 scrollbar-track-bgcolor;
 }

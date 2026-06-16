@@ -1,0 +1,1 @@
+export const USERS_URL = "http://localhost:7777/users"
