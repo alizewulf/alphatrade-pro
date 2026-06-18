@@ -7,3 +7,7 @@ export interface UserDTO {
     cardData: string,
     img: string
 }
+
+export interface RegisterDTO {
+  users: UserDTO[];
+}

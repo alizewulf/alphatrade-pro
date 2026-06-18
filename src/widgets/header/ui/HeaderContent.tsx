@@ -1,12 +1,14 @@
 import NavButton from "@/shared/ui/button/NavButton";
 import { AppInput } from "@/features/search";
 import Bell from "../icons/Bell";
+import { useNavigate } from "react-router";
 
 function HeaderContent() {
+  const navigate = useNavigate()
   return (
     <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8">
-        <h3 className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none">
+        <h3 className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none cursor-pointer" onClick={() => navigate('/home')}>
           AlphaTrade
         </h3>
         <nav className="flex gap-6 items-center">
