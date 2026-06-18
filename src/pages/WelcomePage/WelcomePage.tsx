@@ -8,17 +8,9 @@ import { StartTrading } from "@/features/start-trading";
 import { TryDemoButton } from "@/features/try-demo";
 import BenefitsContainer from "./ui/benefits/BenefitsContainer";
 import JoinNowContainer from "./ui/join-now-section/JoinNowContainer";
-import getData from "@/shared/api/getUsers";
-import { useEffect } from "react";
 
 function WelcomePage() {
-  useEffect(() => {
-    const setUser = async () => {
-      const data = await getData();
-      console.log(data);
-    };
-    setUser();
-  }, []);
+  
   return (
     <>
       <section className="bg-bgcolor flex justify-around py-10 px-8">
