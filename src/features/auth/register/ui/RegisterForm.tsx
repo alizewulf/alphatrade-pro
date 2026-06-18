@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { registerUser } from "../register";
+import { registerUser } from "@/entities/user";
 
 export const RegisterForm = () => {
   const [form, setForm] = useState({
@@ -12,21 +12,18 @@ export const RegisterForm = () => {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  registerUser({
-    ...form,
-    onBalance: Number(form.onBalance),
-    cardData: "AUTO_GENERATED",
-  });
-};
+    registerUser({
+      ...form,
+      onBalance: Number(form.onBalance),
+      cardData: "AUTO_GENERATED",
+    });
+  };
 
   return (
     <div className="min-h-screen bg-bgcolor flex items-center justify-center font-[Inter]">
@@ -45,33 +42,30 @@ const handleSubmit = (e: React.FormEvent) => {
             onChange={handleChange}
             className="bg-appinput-bg text-white p-3 rounded-lg outline-none border border-transparent focus:border-primary"
           />
-
           <input
             name="name"
             placeholder="Name"
             onChange={handleChange}
             className="bg-appinput-bg text-white p-3 rounded-lg outline-none border border-transparent focus:border-primary"
           />
-
           <input
             name="surname"
             placeholder="Surname"
             onChange={handleChange}
             className="bg-appinput-bg text-white p-3 rounded-lg outline-none border border-transparent focus:border-primary"
           />
-
           <input
             name="password"
             type="password"
             placeholder="Password"
             onChange={handleChange}
-            className="bg-appinput-bg text-white p-3 rounded-lg outline-none border border-transparent focus:primary"
+            className="bg-appinput-bg text-white p-3 rounded-lg outline-none border border-transparent focus:border-primary"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full mt-6 bg-primary hover:bg-primary-2 text-white font-medium p-3 rounded-lg transition"
+          className="w-full mt-6 bg-primary hover:bg-primary-2 text-white font-medium p-3 rounded-lg transition cursor-pointer"
         >
           Register
         </button>

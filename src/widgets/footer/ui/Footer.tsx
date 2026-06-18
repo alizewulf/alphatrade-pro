@@ -1,6 +1,5 @@
-import FooterButton from "./Button";
-import EarthSVG from "./icons/EarthSVG";
-import ShareSVG from "./icons/ShareSVG";
+import { Button } from "@/shared/ui/Button";
+import { EarthSVG, ShareSVG } from "@/shared/ui/icons";
 import InformationContainer from "./InformationContainer";
 import LinksContainer from "./LinksContainer";
 
@@ -15,12 +14,12 @@ function FooterContent({ showSocials = true }: FooterContentProps) {
       <LinksContainer />
       {showSocials && (
         <div className="flex gap-4">
-          <FooterButton>
+          <Button variant="icon">
             <EarthSVG />
-          </FooterButton>
-          <FooterButton>
+          </Button>
+          <Button variant="icon">
             <ShareSVG />
-          </FooterButton>
+          </Button>
         </div>
       )}
     </footer>

@@ -1,16 +1,17 @@
+import { useNavigate } from "react-router";
 import ConfirmationBadge from "./ui/hero/ConfirmationBadge";
 import HeroImg from "./ui/hero/Hero-img";
 import HeroText from "./ui/hero/Hero-text";
 import HighLightsText from "./ui/highlight-section/Highlights-text";
 import StatsList from "./ui/hero/StatsList";
 import HighlightsItemContainer from "./ui/highlight-section/Highlights-item-wrapper";
-import { StartTrading } from "@/features/start-trading";
-import { TryDemoButton } from "@/features/try-demo";
+import { Button } from "@/shared/ui/Button";
 import BenefitsContainer from "./ui/benefits/BenefitsContainer";
 import JoinNowContainer from "./ui/join-now-section/JoinNowContainer";
 
 function WelcomePage() {
-  
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="bg-bgcolor flex justify-around py-10 px-8">
@@ -20,8 +21,16 @@ function WelcomePage() {
           <HeroText />
 
           <div className="flex gap-3">
-            <StartTrading />
-            <TryDemoButton />
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => navigate("/login")}
+            >
+              Start Trading
+            </Button>
+            <Button variant="secondary" size="lg">
+              View Demo
+            </Button>
           </div>
 
           <div className="flex gap-6 border-t border-[#424754] pt-8.25">

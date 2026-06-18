@@ -1,6 +1,7 @@
 type LoupeProps = {
   className: string;
 };
+
 function Loupe({ className }: LoupeProps) {
   return (
     <svg

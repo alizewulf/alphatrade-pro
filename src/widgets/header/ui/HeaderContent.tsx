@@ -1,14 +1,18 @@
-import NavButton from "@/shared/ui/button/NavButton";
-import { AppInput } from "@/features/search";
-import Bell from "../icons/Bell";
+import { Button } from "@/shared/ui/Button";
+import { SearchInput } from "@/shared/ui/Input";
+import { Bell } from "@/shared/ui/icons";
 import { useNavigate } from "react-router";
 
 function HeaderContent() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8">
-        <h3 className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none cursor-pointer" onClick={() => navigate('/home')}>
+        <h3
+          className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none cursor-pointer"
+          onClick={() => navigate("/home")}
+        >
           AlphaTrade
         </h3>
         <nav className="flex gap-6 items-center">
@@ -19,12 +23,14 @@ function HeaderContent() {
       </div>
 
       <div className="flex gap-4 items-center">
-        <AppInput/>
+        <SearchInput />
         <button className="cursor-pointer">
-          <Bell/>
+          <Bell />
         </button>
-        <button className="font-inter text-base leading-6 text-paragraph">Support</button>
-        <NavButton>Execute Trade</NavButton>
+        <button className="font-inter text-base leading-6 text-paragraph cursor-pointer">
+          Support
+        </button>
+        <Button variant="nav">Execute Trade</Button>
       </div>
     </header>
   );
