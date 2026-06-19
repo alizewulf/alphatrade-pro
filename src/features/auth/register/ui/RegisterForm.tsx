@@ -21,7 +21,7 @@ export const RegisterForm = () => {
     registerUser({
       ...form,
       onBalance: Number(form.onBalance),
-      cardData: "AUTO_GENERATED",
+      cardData: null,
     });
   };
 

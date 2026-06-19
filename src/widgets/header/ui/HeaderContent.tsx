@@ -1,11 +1,14 @@
 import { Button } from "@/shared/ui/Button";
 import { SearchInput } from "@/shared/ui/Input";
 import { Bell } from "@/shared/ui/icons";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 function HeaderContent() {
   const navigate = useNavigate();
-
+  const navStyle = ({ isActive }: { isActive: boolean }) =>
+    isActive
+      ? "text-[#ADC6FF] underline cursor-pointer"
+      : "text-paragraph cursor-pointer";
   return (
     <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8">
@@ -16,9 +19,20 @@ function HeaderContent() {
           AlphaTrade
         </h3>
         <nav className="flex gap-6 items-center">
-          <p className="text-[#ADC6FF] underline cursor-pointer">Dashboard</p>
-          <p className="text-paragraph cursor-pointer">Markets</p>
-          <p className="text-paragraph cursor-pointer">Portfolio</p>
+          <NavLink to={"/home"} className={navStyle}>
+            Dashboard
+          </NavLink>
+          <NavLink
+            to={"/markets"}
+            className={navStyle}
+            onClick={(e) => e.preventDefault()}
+          >
+            Markets
+          </NavLink>
+
+          <NavLink to={"/portfolio"} className={navStyle}>
+            Portfolio
+          </NavLink>
         </nav>
       </div>
 

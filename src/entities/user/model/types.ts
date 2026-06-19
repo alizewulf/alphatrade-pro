@@ -5,7 +5,7 @@ export interface User {
   surname: string;
   password: string;
   onBalance: number;
-  cardData: string;
+  cardData: string | null;
   img: string;
 }
 

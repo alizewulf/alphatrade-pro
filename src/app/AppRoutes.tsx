@@ -3,6 +3,7 @@ import AppLayout from "@/app/AppLayout";
 import WelcomePage from "@/pages/WelcomePage/WelcomePage";
 import LoginPage from "@/pages/LoginPage/LoginPage";
 import SignUpPage from "@/pages/SignUpPage/SignUpPage";
+import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +13,8 @@ export const router = createBrowserRouter([
         path: "home",
         element: <WelcomePage />,
         handle: {
-          showSocials: true
+          showSocials: true,
+          showSidebar: false,
         },
       },
       {
@@ -21,12 +23,25 @@ export const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <LoginPage/>
+        element: <LoginPage />,
+        handle: {
+          showSidebar: false,
+        },
       },
       {
         path: "signup",
-        element: <SignUpPage/>
-      }
+        element: <SignUpPage />,
+        handle: {
+          showSidebar: false,
+        },
+      },
+      {
+        path: "portfolio",
+        element: <PortfolioPage />,
+        handle: {
+          showSidebar: true,
+        },
+      },
     ],
   },
 ]);
