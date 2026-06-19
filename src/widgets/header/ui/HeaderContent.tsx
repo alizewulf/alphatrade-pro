@@ -3,6 +3,7 @@ import { SearchInput } from "@/shared/ui/Input";
 import { Bell } from "@/shared/ui/icons";
 import { NavLink, useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
+import HeadingTitle from "./HeadingTitle/HeadingTitleWrapper";
 
 function HeaderContent() {
   const navigate = useNavigate();
@@ -20,27 +21,7 @@ function HeaderContent() {
   return (
     <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8 items-center">
-        {!isAuth ? (
-          <h3 className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none">
-            AlphaTrade
-          </h3>
-        ) : isVip ? (
-          <div className="flex font-inter flex-col gap-1 pt-4 px-6">
-            <h3 className="font-bold text-xl leading-7 text-[#ADC6FF]">
-              AlphaTrade
-            </h3>
-            <span className="uppercase font-semibold text-xs leading-3 tracking-[1.2px] text-[#C2C6D6]">
-              Premium Tier
-            </span>
-          </div>
-        ) : (
-          <h3
-            className="font-inter text-white font-bold tracking-[-0.6px] leading-[31.2px] text-2xl select-none cursor-pointer"
-            onClick={() => navigate("/home")}
-          >
-            AlphaTrade
-          </h3>
-        )}
+          <HeadingTitle isAuth={isAuth} isVip={isVip}/>
         <nav className="flex gap-6 items-center">
           <NavLink to={"/home"} className={navStyle}>
             Dashboard
