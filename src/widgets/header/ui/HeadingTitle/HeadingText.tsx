@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router";
+import type { HeadingTitleProps } from "./HeadingTitleWrapper";
 
-function HeadingText() {
+
+function HeadingText({isVip}:HeadingTitleProps) {
 const navigate = useNavigate()
   return (
-    <h3 className="font-inter text-white font-bold cursor-pointer tracking-[-0.6px] leading-[31.2px] text-2xl select-none" onClick={() => navigate("/home")}>
+    <h3 className={`font-inter ${isVip? "font-black leading-8 text-2xl tracking-[-0.6px] text-[#ADC6FF]" : "font-bold text-xl leading-7 tracking-normal text-[#DAE2FD]"}`} onClick={() => navigate("/home")}>
       AlphaTrade
     </h3>
   );

@@ -3,12 +3,14 @@ import Dashboard from "./icons/Dashboard";
 import LineSVG from "./icons/LineSVG";
 import PortfolioSVG from "./icons/PortfolioSVG";
 import HistorySVG from "./icons/HistorySVG";
+import SettingsSVG from "./icons/SettingsSVG";
+import Support from "./icons/Support";
 
 interface SideBarItemProps {
   id: string;
   label: string;
-  svg: ComponentType;
-  path: string;
+  svg?: ComponentType;
+  path?: string;
 }
 
 export const sidebarItems: SideBarItemProps[] = [
@@ -37,3 +39,16 @@ export const sidebarItems: SideBarItemProps[] = [
     svg: HistorySVG,
   },
 ];
+
+export const downsideItems: SideBarItemProps[] = [
+  {
+    id: "settings",
+    label: "Settings",
+    svg: SettingsSVG,
+  },
+  {
+    id: "support",
+    label: "Support",
+    svg: Support
+  }
+]

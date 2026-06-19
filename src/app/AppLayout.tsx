@@ -6,6 +6,7 @@ import Sidebar from "@/widgets/sidebar/ui/Sidebar";
 type RouteHandle = Partial<{
   showSocials: boolean;
   showSidebar: boolean;
+  footerFullWidth: boolean;
   isVip: boolean;
 }>;
 
@@ -13,24 +14,33 @@ function AppLayout() {
   const matches = useMatches() as Array<{
     handle?: RouteHandle;
   }>;
-const lastMatch = matches.at(-1);
+
+  const lastMatch = matches.at(-1);
 
   const showSidebar = lastMatch?.handle?.showSidebar ?? true;
   const showSocials = lastMatch?.handle?.showSocials ?? true;
+  const footerFullWidth = lastMatch?.handle?.footerFullWidth ?? false;
+
   return (
-    <div className="flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <HeaderContent />
 
-    <div className="flex">
-      {showSidebar && <Sidebar />}
-      <main className="w-full">
-        <Outlet />
-      </main>
-    </div>
+      <div className="flex flex-1">
+        {showSidebar && <Sidebar />}
 
-      <FooterContent showSocials={showSocials} />
+        <main className="flex flex-col flex-1">
+          <div className="flex-1">
+            <Outlet />
+          </div>
+
+          {!footerFullWidth && <FooterContent showSocials={showSocials} />}
+        </main>
+      </div>
+
+      {footerFullWidth && <FooterContent showSocials={showSocials} />}
     </div>
   );
 }
+
 
 export default AppLayout;

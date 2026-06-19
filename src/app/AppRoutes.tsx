@@ -41,6 +41,7 @@ export const router = createBrowserRouter([
         handle: {
           showSidebar: true,
           isVip: true,
+          footerFullWidth: false
         },
       },
     ],
