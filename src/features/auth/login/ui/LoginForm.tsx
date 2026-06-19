@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { loginUser } from "../api/login";
 import { Button } from "@/shared/ui/Button";
+import { useAuth } from "@/app/providers/AuthContext";
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [form, setForm] = useState({ login: "", password: "" });
   const [error, setError] = useState("");
 
@@ -19,6 +21,7 @@ function LoginForm() {
       return;
     }
 
+    login(result.user);
     navigate("/home");
   };
 

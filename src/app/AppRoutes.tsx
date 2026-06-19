@@ -40,6 +40,7 @@ export const router = createBrowserRouter([
         element: <PortfolioPage />,
         handle: {
           showSidebar: true,
+          isVip: true,
         },
       },
     ],

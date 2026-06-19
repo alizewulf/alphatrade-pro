@@ -22,6 +22,7 @@ export const RegisterForm = () => {
       ...form,
       onBalance: Number(form.onBalance),
       cardData: null,
+      isVip: false
     });
   };
 

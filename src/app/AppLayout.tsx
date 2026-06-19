@@ -6,13 +6,14 @@ import Sidebar from "@/widgets/sidebar/ui/Sidebar";
 type RouteHandle = Partial<{
   showSocials: boolean;
   showSidebar: boolean;
+  isVip: boolean;
 }>;
 
 function AppLayout() {
   const matches = useMatches() as Array<{
     handle?: RouteHandle;
   }>;
-  const lastMatch = matches.at(-1);
+const lastMatch = matches.at(-1);
 
   const showSidebar = lastMatch?.handle?.showSidebar ?? true;
   const showSocials = lastMatch?.handle?.showSocials ?? true;

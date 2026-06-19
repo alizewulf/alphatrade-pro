@@ -7,6 +7,7 @@ export interface User {
   onBalance: number;
   cardData: string | null;
   img: string;
+  isVip: boolean
 }
 
 export type UserDTO = User;
