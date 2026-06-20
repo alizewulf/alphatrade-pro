@@ -1,10 +1,16 @@
-import {PortfolioChart} from "./PortfolioChart"
+import { useAuth } from "@/app/providers/AuthContext"
+import {PortfolioChart} from "./ui/PortfolioChart"
 
 function PortfolioPage() {
+  const { user } = useAuth()
+
+  if (!user) {
+    return <div>Loading...</div>
+  }
   return (
     <>
-        <section className="bg-bgcolor">
-          <PortfolioChart/>
+        <section className="bg-bgcolor ">
+          <PortfolioChart balance={user.onBalance ?? 0}/>
 
         </section>
     </>
