@@ -1,7 +1,12 @@
+import {PortfolioChart} from "./PortfolioChart"
+
 function PortfolioPage() {
   return (
     <>
-        <div className="flex"></div>
+        <section className="bg-bgcolor">
+          <PortfolioChart/>
+
+        </section>
     </>
 )
 }

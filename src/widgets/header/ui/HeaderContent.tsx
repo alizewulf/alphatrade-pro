@@ -1,17 +1,15 @@
 import { Button } from "@/shared/ui/Button";
 import { SearchInput } from "@/shared/ui/Input";
 import { Bell } from "@/shared/ui/icons";
-import { NavLink, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
 import HeadingTitle from "./HeadingTitle/HeadingTitleWrapper";
+import Nav from "./nav/Nav";
 
 function HeaderContent() {
   const navigate = useNavigate();
   const { isAuth, isVip, logout } = useAuth();
-  const navStyle = ({ isActive }: { isActive: boolean }) =>
-    isActive
-      ? "text-[#ADC6FF] underline cursor-pointer"
-      : "text-paragraph cursor-pointer";
+
 
   const handleLogout = () => {
     logout();
@@ -21,22 +19,11 @@ function HeaderContent() {
   return (
     <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8 items-center">
-          <HeadingTitle isAuth={isAuth} isVip={isVip}/>
+        <HeadingTitle isAuth={isAuth} isVip={isVip} />
         <nav className="flex gap-6 items-center">
-          <NavLink to={"/home"} className={navStyle}>
-            Dashboard
-          </NavLink>
-          <NavLink
-            to={"/markets"}
-            className={navStyle}
-            onClick={(e) => e.preventDefault()}
-          >
-            Markets
-          </NavLink>
-
-          <NavLink to={"/portfolio"} className={navStyle}>
-            Portfolio
-          </NavLink>
+          {isAuth && (
+            <Nav/>
+          )}
         </nav>
       </div>
 

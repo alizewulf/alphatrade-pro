@@ -1,7 +1,7 @@
 import HeadingText from "./HeadingText";
 
 export interface HeadingTitleProps {
-  isAuth: boolean;
+  isAuth?: boolean;
   isVip: boolean;
 }
 
@@ -9,7 +9,7 @@ function HeadingTitle({ isAuth, isVip}: HeadingTitleProps) {
   return (
     <>
       {!isAuth ? (
-        <HeadingText isAuth={isAuth} isVip={isVip} />
+        <HeadingText isVip={isVip} />
       ) : isVip ? (
         <div className="flex font-inter flex-col gap-1 pt-4 px-6">
           <HeadingText isAuth={isAuth} isVip={isVip} />
