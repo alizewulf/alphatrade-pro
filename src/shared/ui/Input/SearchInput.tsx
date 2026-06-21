@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { Loupe } from "@/shared/ui/icons";
 
-function SearchInput() {
+interface InputProps {
+  width: Width
+}
+
+type Width = "sm" | "md"
+
+function SearchInput({width = "sm"}:InputProps) {
   const [showLoupe, setShowLoupe] = useState(true);
 
   return (
     <div className="relative">
       <input
         placeholder="Search markets..."
-        className="font-inter text-sm text-[#8C909F] bg-appinput-bg outline outline-[#424754]/10 rounded-xl py-2 pl-10 pr-4 placeholder:text-[#8C909F]"
+        className={`font-inter text-sm text-[#8C909F] bg-appinput-bg outline outline-[#424754]/10 rounded-xl py-2 pl-10 pr-4 ${width === "sm" && "w-60"} ${width === "md" && "w-md"} placeholder:text-[#8C909F]`}
         onFocus={() => setShowLoupe(false)}
         onBlur={() => setShowLoupe(true)}
       />

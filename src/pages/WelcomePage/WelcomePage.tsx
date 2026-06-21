@@ -8,10 +8,11 @@ import HighlightsItemContainer from "./ui/highlight-section/Highlights-item-wrap
 import { Button } from "@/shared/ui/Button";
 import BenefitsContainer from "./ui/benefits/BenefitsContainer";
 import JoinNowContainer from "./ui/join-now-section/JoinNowContainer";
+import { useAuth } from "@/app/providers/AuthContext";
 
 function WelcomePage() {
   const navigate = useNavigate();
-
+  const { isAuth } = useAuth()
   return (
     <>
       <section className="bg-bgcolor flex justify-around py-10 px-8">
@@ -24,7 +25,7 @@ function WelcomePage() {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate("/login")}
+              onClick={() => { isAuth ? navigate('/login') : navigate('/portfolio')}}
             >
               Start Trading
             </Button>

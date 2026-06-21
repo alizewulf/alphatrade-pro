@@ -3,6 +3,7 @@ import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { CustomTooltip } from "./CustomToolTip";
 import { generateData, type DataPoint } from "../generator";
 import { DAYS, MONTHS } from "../datesConfig";
+import ArrowSVG from "./icons/ArrowSVG";
 type Range = "1D" | "1W" | "1M" | "1Y" | "ALL";
 
 const DATASETS: Record<Range, DataPoint[]> = {
@@ -54,7 +55,7 @@ export function PortfolioChart({ balance }: { balance: number }) {
       <div
         className={`flex items-center gap-1.5 text-sm mb-6 ${isUp ? "text-[#4EDEA3]" : "text-red-400"}`}
       >
-        <span>{isUp ? "▲" : "▼"}</span>
+        <span>{isUp ? <ArrowSVG variant="up"/> : <ArrowSVG variant="down"/>}</span>
         <span className="text-base leading-6">
           {isUp ? "+" : ""}
           {pct}%
@@ -70,12 +71,12 @@ export function PortfolioChart({ balance }: { balance: number }) {
             <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
               <stop
                 offset="0%"
-                stopColor={isUp ? "#34d399" : "#f87171"}
+                stopColor={isUp ? "#ADC6FF" : "#f87171"}
                 stopOpacity={0.2}
               />
               <stop
                 offset="100%"
-                stopColor={isUp ? "#34d399" : "#f87171"}
+                stopColor={isUp ? "#ADC6FF" : "#f87171"}
                 stopOpacity={0}
               />
             </linearGradient>
@@ -88,12 +89,12 @@ export function PortfolioChart({ balance }: { balance: number }) {
           />
           <Tooltip
             content={<CustomTooltip />}
-            cursor={{ stroke: "rgba(255,255,255,0.1)" }}
+            cursor={{ stroke: "#ADC6FF" }}
           />
           <Area
             type="natural"
             dataKey="value"
-            stroke={isUp ? "#34d399" : "#f87171"}
+            stroke={isUp ? "#ADC6FF" : "#f87171"}
             strokeWidth={2}
             fill="url(#grad)"
           />

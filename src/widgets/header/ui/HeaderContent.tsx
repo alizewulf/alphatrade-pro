@@ -5,11 +5,16 @@ import { useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
 import HeadingTitle from "./HeadingTitle/HeadingTitleWrapper";
 import Nav from "./nav/Nav";
+import WalletSVG from "@/pages/PortfolioPage/ui/icons/WalletSVG";
 
-function HeaderContent() {
+export type HeaderVariants = "primary" | "secondary";
+interface HeaderProps {
+  variant: HeaderVariants;
+}
+
+function HeaderContent({ variant }: HeaderProps) {
   const navigate = useNavigate();
   const { isAuth, isVip, logout } = useAuth();
-
 
   const handleLogout = () => {
     logout();
@@ -21,17 +26,19 @@ function HeaderContent() {
       <div className="flex gap-8 items-center">
         <HeadingTitle isAuth={isAuth} isVip={isVip} />
         <nav className="flex gap-6 items-center">
-          {isAuth && (
-            <Nav/>
-          )}
+          {isAuth && variant === "primary" && <Nav />}
         </nav>
+        {variant === "secondary" && <SearchInput width="md"/>}
       </div>
 
       <div className="flex gap-4 items-center">
-        <SearchInput />
+        {variant === "primary" && <SearchInput width="sm" />}
         <button className="cursor-pointer">
           <Bell />
         </button>
+          {variant === "secondary" && (
+            <button className="cursor-pointer border-r border-r-[#424754] pr-6 py-4"><WalletSVG/></button>
+          )}
         <button className="font-inter text-base leading-6 text-paragraph cursor-pointer">
           Support
         </button>

@@ -2,11 +2,13 @@ import { HeaderContent } from "../widgets/header";
 import { FooterContent } from "../widgets/footer";
 import { Outlet, useMatches } from "react-router";
 import Sidebar from "@/widgets/sidebar/ui/Sidebar";
+import type { HeaderVariants } from "@/widgets/header/ui/HeaderContent";
 
 type RouteHandle = Partial<{
   showSocials: boolean;
   showSidebar: boolean;
   footerFullWidth: boolean;
+  variant: HeaderVariants;
   isVip: boolean;
 }>;
 
@@ -20,10 +22,11 @@ function AppLayout() {
   const showSidebar = lastMatch?.handle?.showSidebar ?? true;
   const showSocials = lastMatch?.handle?.showSocials ?? true;
   const footerFullWidth = lastMatch?.handle?.footerFullWidth ?? false;
+  const headerVariant = lastMatch?.handle?.variant ?? "primary";
 
   return (
     <div className="flex min-h-screen flex-col">
-      <HeaderContent />
+      <HeaderContent variant={headerVariant}/>
 
       <div className="flex flex-1">
         {showSidebar && <Sidebar />}
