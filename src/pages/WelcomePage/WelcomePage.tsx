@@ -25,7 +25,7 @@ function WelcomePage() {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => { isAuth ? navigate('/login') : navigate('/portfolio')}}
+              onClick={() => { isAuth ? navigate('/portfolio') : navigate('/login')}}
             >
               Start Trading
             </Button>
