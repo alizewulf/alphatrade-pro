@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
 import HeadingTitle from "./HeadingTitle/HeadingTitleWrapper";
 import Nav from "./nav/Nav";
-import WalletSVG from "@/pages/PortfolioPage/ui/icons/WalletSVG";
+import WalletSVG from "@/pages/PortfolioPage/portfolio-chart/ui/icons/WalletSVG";
 
 export type HeaderVariants = "primary" | "secondary";
 interface HeaderProps {

@@ -1,4 +1,4 @@
-import ArrowSVG from "../../ui/icons/ArrowSVG";
+import ArrowSVG from "./icons/ArrowSVG";
 
 interface IndicatorProps {
     isUp: boolean

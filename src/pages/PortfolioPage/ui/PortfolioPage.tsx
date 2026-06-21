@@ -1,5 +1,5 @@
 import { useAuth } from "@/app/providers/AuthContext"
-import {PortfolioChart} from "../../PortfolioChart"
+import {PortfolioChart} from "../portfolio-chart"
 
 function PortfolioPage() {
   const { user } = useAuth()
