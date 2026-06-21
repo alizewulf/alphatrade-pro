@@ -13,7 +13,7 @@ function HeadingTitle({ isAuth, isVip}: HeadingTitleProps) {
       ) : isVip ? (
         <div className="flex font-inter cursor-pointer flex-col gap-1 pt-4 px-6">
           <HeadingText isAuth={isAuth} isVip={isVip} />
-          <span className="uppercase font-semibold text-xs leading-3 tracking-[1.2px] text-[#C2C6D6]">
+          <span className="uppercase font-semibold text-xs leading-3 tracking-[1.2px] text-paragraph">
             Premium Tier
           </span>
         </div>

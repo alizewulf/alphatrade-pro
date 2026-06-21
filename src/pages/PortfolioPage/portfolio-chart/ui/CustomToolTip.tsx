@@ -7,7 +7,7 @@ export const CustomTooltip = (props: any) => {
       <p className="text-[#ADC6FF] text-base leading-6 font-medium">
         ${payload[0].value?.toLocaleString()}
       </p>
-      <p className="text-[#C2C6D6] leading-4 text-xs mt-0.5">{label}</p>
+      <p className="text-paragraph leading-4 text-xs mt-0.5">{label}</p>
     </div>
   );
 };

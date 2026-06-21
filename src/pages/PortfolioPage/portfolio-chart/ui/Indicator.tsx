@@ -18,7 +18,7 @@ function Indicator({pct, isUp, diff}:IndicatorProps) {
         {isUp ? "+" : ""}
         {pct}%
       </span>
-      <span className="text-[#C2C6D6] text-base leading-6">
+      <span className="text-paragraph text-base leading-6">
         {isUp ? "+" : ""}${Math.abs(diff).toLocaleString()} this year
       </span>
     </div>

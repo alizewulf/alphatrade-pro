@@ -11,7 +11,7 @@ function AllocationSection() {
         <div className="relative outline-16 w-48 h-48 outline-[#2D3449] rounded-xl">
           <div className="absolute flex items-center justify-center flex-col bottom-1/2 right-1/2 translate-1/2 outline-16 outline-[#4EDEA3] rounded-xl w-40 h-40 -rotate-12">
             <div className="flex text-base leading-6 flex-col rotate-12 text-center">
-              <span className="text-[#C2C6D6]">Top Sector</span>
+              <span className="text-paragraph">Top Sector</span>
               <span className="text-[#ADC6FF]">Tech</span>
             </div>
           </div>
