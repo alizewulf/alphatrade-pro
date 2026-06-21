@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router";
-import ConfirmationBadge from "./ui/hero/ConfirmationBadge";
-import HeroImg from "./ui/hero/Hero-img";
-import HeroText from "./ui/hero/Hero-text";
-import HighLightsText from "./ui/highlight-section/Highlights-text";
-import StatsList from "./ui/hero/StatsList";
-import HighlightsItemContainer from "./ui/highlight-section/Highlights-item-wrapper";
+import ConfirmationBadge from "./hero/ConfirmationBadge";
+import HeroImg from "./hero/Hero-img";
+import HeroText from "./hero/Hero-text";
+import HighLightsText from "./highlight-section/Highlights-text";
+import StatsList from "./hero/StatsList";
+import HighlightsItemContainer from "./highlight-section/Highlights-item-wrapper";
 import { Button } from "@/shared/ui/Button";
-import BenefitsContainer from "./ui/benefits/BenefitsContainer";
-import JoinNowContainer from "./ui/join-now-section/JoinNowContainer";
+import BenefitsContainer from "./benefits/BenefitsContainer";
+import JoinNowContainer from "./join-now-section/JoinNowContainer";
 import { useAuth } from "@/app/providers/AuthContext";
 
 function WelcomePage() {

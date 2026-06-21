@@ -1,5 +1,5 @@
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { CustomTooltip } from "../CustomToolTip";
+import { CustomTooltip } from "./CustomToolTip";
 
 interface ChartPoint {
   date: string;

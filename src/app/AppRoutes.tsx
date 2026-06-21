@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import AppLayout from "@/app/AppLayout";
-import WelcomePage from "@/pages/WelcomePage/WelcomePage";
-import LoginPage from "@/pages/LoginPage/LoginPage";
-import SignUpPage from "@/pages/SignUpPage/SignUpPage";
-import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage";
+import WelcomePage from "@/pages/WelcomePage/";
+import LoginPage from "@/pages/LoginPage/";
+import SignUpPage from "@/pages/SignUpPage/";
+import PortfolioPage from "@/pages/PortfolioPage";
 export const router = createBrowserRouter([
   {
     path: "/",
