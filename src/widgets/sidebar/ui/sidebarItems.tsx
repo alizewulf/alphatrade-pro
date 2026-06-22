@@ -6,17 +6,19 @@ import HistorySVG from "./icons/HistorySVG";
 import SettingsSVG from "./icons/SettingsSVG";
 import Support from "./icons/Support";
 
-interface BottomSidebarProps {
+type SvgProps = { color?: string };
+
+interface BottomSidebarItem {
   id: string;
   label: string;
-  svg: FC;
+  svg: FC<SvgProps>;
 }
 
-interface SidebarItemProps extends BottomSidebarProps {
+interface SidebarItem extends BottomSidebarItem {
   path: string;
 }
 
-export const sidebarItems: SidebarItemProps[] = [
+export const sidebarItems: SidebarItem[] = [
   {
     id: "dashboard",
     label: "Dashboard",
@@ -43,7 +45,7 @@ export const sidebarItems: SidebarItemProps[] = [
   },
 ];
 
-export const downsideItems: BottomSidebarProps[] = [
+export const downsideItems: BottomSidebarItem[] = [
   {
     id: "settings",
     label: "Settings",

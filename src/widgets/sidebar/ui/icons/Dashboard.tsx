@@ -1,4 +1,4 @@
-function Dashboard() {
+function Dashboard({ color = "#C2C6D6" }: { color?: string }) {
   return (
     <svg
       width="18"
@@ -9,7 +9,7 @@ function Dashboard() {
     >
       <path
         d="M10 6V0H18V6H10ZM0 10V0H8V10H0ZM10 18V8H18V18H10ZM0 18V12H8V18H0ZM2 8H6V2H2V8ZM12 16H16V10H12V16ZM12 4H16V2H12V4ZM2 16H6V14H2V16Z"
-        fill="#C2C6D6"
+        fill={color}
       />
     </svg>
   );

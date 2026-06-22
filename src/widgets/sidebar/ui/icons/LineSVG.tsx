@@ -1,4 +1,4 @@
-function LineSVG() {
+function LineSVG({ color = "#C2C6D6" }: { color?: string }) {
   return (
     <svg
       width="20"
@@ -9,7 +9,7 @@ function LineSVG() {
     >
       <path
         d="M1.5 13L0 11.5L7.5 4L11.5 8L18.6 0L20 1.4L11.5 11L7.5 7L1.5 13Z"
-        fill="#C2C6D6"
+        fill={color}
       />
     </svg>
   );
