@@ -20,7 +20,7 @@ export const sidebarItems: SidebarItemProps[] = [
   {
     id: "dashboard",
     label: "Dashboard",
-    path: "/home",
+    path: "/dashboard",
     svg: Dashboard,
   },
   {
@@ -32,7 +32,7 @@ export const sidebarItems: SidebarItemProps[] = [
   {
     id: "portfolio",
     label: "Portfolio",
-    path: "/home",
+    path: "/portfolio",
     svg: PortfolioSVG,
   },
   {

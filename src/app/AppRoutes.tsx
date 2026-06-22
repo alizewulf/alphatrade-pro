@@ -36,13 +36,23 @@ export const router = createBrowserRouter([
         },
       },
       {
-        path: "portfolio",
-        element: <PortfolioPage />,
+        path: "dashboard",
+        element: <Navigate to="/*" replace />,
         handle: {
           showSidebar: true,
           isVip: true,
           variant: "secondary",
-          footerFullWidth: false
+          footerFullWidth: false,
+        },
+      },
+      {
+        path: "portfolio",
+        element: <PortfolioPage   />,
+        handle: {
+          showSidebar: true,
+          isVip: true,
+          variant: "secondary",
+          footerFullWidth: false,
         },
       },
     ],

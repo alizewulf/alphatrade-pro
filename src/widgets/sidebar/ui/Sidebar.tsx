@@ -16,8 +16,14 @@ function Sidebar() {
 
           return (
             <NavLink
-              className={`flex gap-3 items-center font-inter cursor-pointer py-3 pl-4 font-semibold text-xs leading-3 tracking-[0.6px] text-paragraph`}
               to={item.path}
+              className={({ isActive }) =>
+                `flex gap-3 items-center font-inter cursor-pointer py-3 pl-4 font-semibold text-xs leading-3 tracking-[0.6px] ${
+                  isActive
+                    ? "text-[#ADC6FF] bg-[#ADC6FF]/10 outline-2 outline-[#ADC6FF] rounded-lg"
+                    : "text-paragraph hover:text-[#ADC6FF]"
+                }`
+              }
             >
               <Icon /> {item.label}
             </NavLink>

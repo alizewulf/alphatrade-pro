@@ -6,7 +6,7 @@ function LoginPage() {
   const { isAuth } = useAuth();
 
   if (isAuth) {
-    return <Navigate to="/home" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <LoginForm />;

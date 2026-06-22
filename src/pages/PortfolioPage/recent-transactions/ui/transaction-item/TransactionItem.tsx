@@ -17,4 +17,3 @@ function TransactionItem({ SVG, status, amount, paragraph, span }: TransactionIt
 }
 
 export default TransactionItem;
-
