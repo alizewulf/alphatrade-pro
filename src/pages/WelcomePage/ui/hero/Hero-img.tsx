@@ -1,5 +1,5 @@
 import heroIMG from '../../assets/hero_img.png' 
-import ArrowIcon from "../../icons/ArrowIcon";
+import ArrowIcon from "../../../../shared/ui/icons/ArrowIcon";
 
 function HeroImg() {
   return (

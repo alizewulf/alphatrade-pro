@@ -1,4 +1,4 @@
-import ArrowIcon from "../../icons/ArrowIcon";
+import ArrowIcon from "../../../../shared/ui/icons/ArrowIcon";
 import HighlightsHeader from "./Highlights-header";
 import HighlightsMain from "./Highlights-main";
 import HighlightsProgressbar from "./Highlights-progressbar";

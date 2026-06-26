@@ -4,6 +4,7 @@ import WelcomePage from "@/pages/WelcomePage/";
 import LoginPage from "@/pages/LoginPage/";
 import SignUpPage from "@/pages/SignUpPage/";
 import PortfolioPage from "@/pages/PortfolioPage";
+import Dashboard from "@/pages/DashboardPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <Navigate to="/*" replace />,
+        element: <Dashboard />,
         handle: {
           showSidebar: true,
           isVip: true,
