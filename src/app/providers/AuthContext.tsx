@@ -20,12 +20,15 @@ function loadFromStorage(): User | null {
   }
 }
 
+const DEMO_SESSION_KEY = "alpha_trade_demo_balance";
+
 function saveToStorage(user: User) {
   localStorage.setItem("auth_user", JSON.stringify(user));
 }
 
 function clearStorage() {
   localStorage.removeItem("auth_user");
+  sessionStorage.removeItem(DEMO_SESSION_KEY);
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {

@@ -1,8 +1,6 @@
 function MSContainer({ bgColor }: { bgColor: string }) {
   return (
-    <div
-      className={`flex flex-col px-12 py-8 ${bgColor} w-1/5 font-inter justify-between`}
-    >
+    <div className={`flex flex-col justify-between rounded-3xl p-8 ${bgColor} font-inter`}>
       <p className="text-paragraph font-semibold text-xs text-center tracking-[0.6px] leading-3 uppercase">
         Market sentiment
       </p>

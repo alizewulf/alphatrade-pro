@@ -28,7 +28,11 @@ function HeroSection() {
           >
             Start Trading
           </Button>
-          <Button variant="secondary" size="lg">
+          <Button
+            variant="secondary"
+            size="lg"
+            onClick={() => navigate("/demo")}
+          >
             View Demo
           </Button>
         </div>

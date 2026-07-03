@@ -10,9 +10,10 @@ import WalletSVG from "@/widgets/portfolio/portfolio-chart/ui/icons/WalletSVG";
 export type HeaderVariants = "primary" | "secondary";
 interface HeaderProps {
   variant: HeaderVariants;
+  isDemo?: boolean;
 }
 
-function HeaderContent({ variant }: HeaderProps) {
+function HeaderContent({ variant, isDemo }: HeaderProps) {
   const navigate = useNavigate();
   const { isAuth, isVip, logout } = useAuth();
 
@@ -24,7 +25,7 @@ function HeaderContent({ variant }: HeaderProps) {
   return (
     <header className="bg-bgcolor p-4 flex justify-between">
       <div className="flex gap-8 items-center">
-        <HeadingTitle isAuth={isAuth} isVip={isVip} />
+        <HeadingTitle isAuth={isAuth} isVip={isVip} isDemo={isDemo} />
         <nav className="flex gap-6 items-center">
           {isAuth && variant === "primary" && <Nav />}
         </nav>

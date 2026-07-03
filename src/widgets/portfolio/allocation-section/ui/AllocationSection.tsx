@@ -1,9 +1,15 @@
 import { allocationData } from "../data/allocationData";
+import type { PortfolioAllocation } from "@/entities/portfolio";
 import StatisticWrapper from "./StatisticWrapper";
 
-function AllocationSection() {
+function AllocationSection({ allocation }: { allocation?: PortfolioAllocation[] }) {
+  const data = allocation ?? allocationData.map((item) => ({
+    name: item.title,
+    value: item.percentage,
+  }));
+
   return (
-    <div className="flex font-inter flex-col rounded-lg gap-6 p-6 bg-[#1E293B]/70 w-1/4">
+    <div className="flex font-inter flex-col w-2/5 rounded-lg gap-6 h-fit p-6 bg-[#1E293B]/70">
       <h3 className="font-semibold text-xl leading-7 text-[#DAE2FD]">
         Sector Allocation
       </h3>
@@ -18,8 +24,13 @@ function AllocationSection() {
         </div>
 
         <div className="flex flex-col w-full mt-2 text-start gap-3 pb-10">
-          {allocationData.map(item => (
-            <StatisticWrapper color={item.color} percent={item.percentage} textContent={item.title} key={item.title}/>
+          {data.map((item) => (
+            <StatisticWrapper
+              color="#4EDEA3"
+              percent={item.value.toString()}
+              textContent={item.name}
+              key={item.name}
+            />
           ))}
         </div>
       </div>

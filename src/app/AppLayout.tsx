@@ -10,6 +10,7 @@ type RouteHandle = Partial<{
   footerFullWidth: boolean;
   variant: HeaderVariants;
   isVip: boolean;
+  isDemo: boolean;
 }>;
 
 function AppLayout() {
@@ -23,10 +24,11 @@ function AppLayout() {
   const showSocials = lastMatch?.handle?.showSocials ?? true;
   const footerFullWidth = lastMatch?.handle?.footerFullWidth ?? false;
   const headerVariant = lastMatch?.handle?.variant ?? "primary";
+  const isDemo = lastMatch?.handle?.isDemo ?? false;
 
   return (
     <div className="flex min-h-screen flex-col">
-      <HeaderContent variant={headerVariant}/>
+      <HeaderContent variant={headerVariant} isDemo={isDemo} />
 
       <div className="flex flex-1">
         {showSidebar && <Sidebar />}

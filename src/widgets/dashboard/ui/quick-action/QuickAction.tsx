@@ -2,7 +2,7 @@ import EnergySVG from "@/widgets/dashboard/ui/icons/Energy";
 
 function QuickAction({ bgColor }: { bgColor?: string }) {
   return (
-    <div className={`p-6 w-1/5 ${bgColor} font-inter gap-4 flex flex-col`}>
+    <div className={`flex flex-col gap-4 rounded-3xl p-6 ${bgColor} font-inter`}>
       <div className="flex items-center justify-between">
         <span className="font-semibold text-xs text-paragraph tracking-[0.6px] leading-3">
           QUICK ACTION

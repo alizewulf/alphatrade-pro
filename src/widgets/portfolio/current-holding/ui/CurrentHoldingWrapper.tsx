@@ -6,7 +6,7 @@ import { holdings } from "./data/holding";
 
 function CurrentHoldingWrapper() {
   return (
-    <div className="w-full bg-[#1E293B]">
+    <div className="w-full h-fit bg-[#1E293B]">
       <TitleContainer container="holding"/>
       <GridWrapper>
         {holdings.map(h => (

@@ -5,6 +5,7 @@ import LoginPage from "@/pages/LoginPage/";
 import SignUpPage from "@/pages/SignUpPage/";
 import PortfolioPage from "@/pages/PortfolioPage";
 import Dashboard from "@/pages/DashboardPage";
+import DemoPage from "@/pages/DemoPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,16 @@ export const router = createBrowserRouter([
           isVip: true,
           variant: "secondary",
           footerFullWidth: false,
+        },
+      },
+      {
+        path: "demo",
+        element: <DemoPage />,
+        handle: {
+          showSidebar: false,
+          showSocials: false,
+          variant: "primary",
+          isDemo: true,
         },
       },
     ],
