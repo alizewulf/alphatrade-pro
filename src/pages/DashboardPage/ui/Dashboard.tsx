@@ -4,22 +4,41 @@ import {
   ValueHeader,
   ValueFooter,
   MSContainer,
-  QuickAction
-} from "../dashboard-header";
+  QuickAction,
+} from "@/widgets/dashboard/dashboard-header";
+import Container from "../../../widgets/dashboard/dashboard-header/ui/Container";
 
 function Dashboard() {
   const bgColor = "bg-[#1E293B]/70";
   const { user } = useAuth();
   return (
     <section className="flex flex-col gap-6 font-inter p-8 bg-bgcolor">
-      <div className="flex flex-row gap-4">
+      <Container>
         <ValueWrapper bgColor={bgColor}>
           <ValueHeader user={user} />
           <ValueFooter />
         </ValueWrapper>
         <MSContainer bgColor={bgColor} />
         <QuickAction bgColor={bgColor} />
-      </div>
+      </Container>
+
+      <Container>
+        <div className="flex flex-col w-2/3">
+          <div className="flex justify-between">
+            <h3 className="font-bold text-2xl leading-8 text-[#DAE2FD]">
+              My Watchlist
+            </h3>
+            <div className="flex items-center gap-2">
+              <button className="py-1 px-3 bg-[#222A3D] rounded-xs font-semibold text-xs leading-3 tracking-[0.6px] text-[#DAE2FD] cursor-pointer">
+                Edit List
+              </button>
+              <button className="py-1 px-3 bg-[#222A3D] rounded-xs font-semibold text-xs leading-3 tracking-[0.6px] text-[#DAE2FD] cursor-pointer">
+                Add Symbol
+              </button>
+            </div>
+          </div>
+        </div>``
+      </Container>
     </section>
   );
 }

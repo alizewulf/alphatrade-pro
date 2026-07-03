@@ -1,8 +1,8 @@
 import { useAuth } from "@/app/providers/AuthContext";
-import { PortfolioChart } from "../portfolio-chart";
-import AllocationSection from "../allocation-section";
-import CurrentHolding from "../current-holding";
-import RecentTransactions from "../recent-transactions";
+import { PortfolioChart } from "@/widgets/portfolio/portfolio-chart";
+import AllocationSection from "@/widgets/portfolio/allocation-section";
+import CurrentHolding from "@/widgets/portfolio/current-holding";
+import RecentTransactions from "@/widgets/portfolio/recent-transactions";
 
 function PortfolioPage() {
   const { user } = useAuth();

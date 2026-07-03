@@ -1,7 +1,7 @@
-import StatsList from "../hero/StatsList";
-import Coinbox from "../../icons/Coinbox";
-import LightningIcon from "../../icons/LightningIcon";
-import Traffic from "../../icons/Traffic";
+import StatsList from "@/widgets/welcome/hero/StatsList";
+import Coinbox from "@/widgets/welcome/icons/Coinbox";
+import LightningIcon from "@/widgets/welcome/icons/LightningIcon";
+import Traffic from "@/widgets/welcome/icons/Traffic";
 
 function StatsListWrapper() {
   return (

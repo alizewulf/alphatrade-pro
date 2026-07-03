@@ -1,7 +1,7 @@
-import TitleContainer from "../../ui/shared/TitleContainer"
-import GridWrapper from "./grid/GridWrapper"
-import GridElement from "./grid/GridElement"
-import { holdings } from "./data/holding"
+import TitleContainer from "@/widgets/portfolio/ui/shared/TitleContainer";
+import GridWrapper from "./grid/GridWrapper";
+import GridElement from "./grid/GridElement";
+import { holdings } from "./data/holding";
 
 
 function CurrentHoldingWrapper() {

@@ -1,4 +1,4 @@
-import EnergySVG from "@/pages/DashboardPage/ui/icons/Energy";
+import EnergySVG from "@/widgets/dashboard/dashboard-header/ui/icons/Energy";
 
 function QuickAction({ bgColor }: { bgColor?: string }) {
   return (

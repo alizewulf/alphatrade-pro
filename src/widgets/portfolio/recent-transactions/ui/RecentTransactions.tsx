@@ -1,4 +1,4 @@
-import TitleContainer from "../../ui/shared/TitleContainer";
+import TitleContainer from "@/widgets/portfolio/ui/shared/TitleContainer";
 import CartSVG from "../icons/CartSVG";
 import TransactionItem from "./transaction-item/TransactionItem";
 

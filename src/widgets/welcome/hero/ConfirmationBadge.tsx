@@ -1,4 +1,4 @@
-import ConfirmedSVG from "../../icons/ConfirmedSVG";
+import ConfirmedSVG from "@/widgets/welcome/icons/ConfirmedSVG";
 
 function ConfirmationBadge() {
   return (
