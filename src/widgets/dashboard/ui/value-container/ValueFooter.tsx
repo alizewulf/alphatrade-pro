@@ -1,5 +1,5 @@
 import ArrowIcon from "@/shared/ui/icons/ArrowIcon";
-import ClockSVG from "@/widgets/dashboard/dashboard-header/ui/icons/Clock";
+import ClockSVG from "@/widgets/dashboard/ui/icons/Clock";
 
 function ValueFooter() {
   return (

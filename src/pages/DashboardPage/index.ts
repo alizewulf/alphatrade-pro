@@ -1,2 +1,2 @@
 export {default} from './ui/Dashboard';
-export {default as Container} from '../../widgets/dashboard/dashboard-header/ui/Container';
+export {default as Container} from '../../widgets/dashboard/ui/Container';

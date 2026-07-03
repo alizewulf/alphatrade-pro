@@ -13,8 +13,7 @@ function GridElement({
   const isPositive = plValue >= 0;
 
   return (
-    <div className="grid grid-cols-5 items-center px-4 py-4 border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-      {/* Symbol */}
+    <div className="grid grid-cols-5 items-center px-4 py-4 border-b border-white/5 hover:bg-white/2 transition-colors">
       <div className="flex items-center gap-3">
         <div className="w-9 h-9 rounded-lg bg-indigo-500/20 flex items-center justify-center">
           <span className="text-xs font-semibold text-indigo-300">
@@ -27,20 +26,16 @@ function GridElement({
         </div>
       </div>
 
-      {/* Qty */}
       <span className="text-sm text-gray-200 text-right">{qty.toFixed(2)}</span>
 
-      {/* Avg Cost */}
       <span className="text-sm text-gray-200 text-right">
         ${avgCost.toFixed(2)}
       </span>
 
-      {/* Market Price */}
       <span className="text-sm text-gray-200 text-right">
         ${marketPrice.toFixed(2)}
       </span>
 
-      {/* P/L */}
       <div className="flex justify-end">
         <div
           className={`px-3 py-1.5 rounded-lg text-right ${

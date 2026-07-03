@@ -5,8 +5,10 @@ import {
   ValueFooter,
   MSContainer,
   QuickAction,
-} from "@/widgets/dashboard/dashboard-header";
-import Container from "../../../widgets/dashboard/dashboard-header/ui/Container";
+} from "@/widgets/dashboard";
+import Container from "../../../widgets/dashboard/ui/Container";
+import WatchlistTable from "@/widgets/dashboard/ui/watchlist-table/WatchlistTable";
+import TableItem from "@/widgets/dashboard/ui/watchlist-table/TableItem";
 
 function Dashboard() {
   const bgColor = "bg-[#1E293B]/70";
@@ -37,8 +39,15 @@ function Dashboard() {
               </button>
             </div>
           </div>
-        </div>``
+        </div>
       </Container>
+      
+      <WatchlistTable>
+        <TableItem/>
+        <TableItem/>
+        <TableItem/>
+      </WatchlistTable>
+
     </section>
   );
 }
