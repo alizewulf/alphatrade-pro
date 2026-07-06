@@ -13,6 +13,7 @@ import Skeleton from "react-loading-skeleton";
 import { getWatchlist } from "@/entities/watchlist";
 import type { WatchlistItem } from "@/entities/watchlist";
 import LatestInsight from "@/widgets/dashboard/ui/latest-insight/LatestInsight";
+import TopMoveItem from "@/widgets/dashboard/ui/top-move-item/TopMoveItem";
 
 function Dashboard() {
   const bgColor = "bg-[#1E293B]/70";
@@ -82,6 +83,24 @@ function Dashboard() {
         </div>
 
         <LatestInsight />
+        <div className="flex gap-4">
+          <TopMoveItem
+            type="gainer"
+            items={[
+              { symbol: "AAPL", price: "$150.00", change: "+2.5%" },
+              { symbol: "MSFT", price: "$300.00", change: "+1.8%" },
+            ]}
+            gap={4}
+          ></TopMoveItem>
+          <TopMoveItem
+            type="loser"
+            gap={4}
+            items={[
+              { symbol: "TSLA", price: "$700.00", change: "-3.2%" },
+              { symbol: "AMZN", price: "$3,200.00", change: "-1.5%" },
+            ]}
+          ></TopMoveItem>
+        </div>
       </div>
     </section>
   );

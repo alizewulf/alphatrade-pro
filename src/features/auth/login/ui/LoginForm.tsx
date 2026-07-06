@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
 import { z } from "zod";
 import { loginUser } from "../api/login";
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/button";
 import { useAuth } from "@/app/providers/AuthContext";
 
 const loginSchema = z.object({

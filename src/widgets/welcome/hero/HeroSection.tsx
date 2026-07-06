@@ -2,7 +2,7 @@ import ConfirmationBadge from "./ConfirmationBadge";
 import HeroImg from "./Hero-img";
 import HeroText from "./Hero-text";
 import StatsList from "./StatsList";
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/button";
 import { useAuth } from "@/app/providers/AuthContext";
 import { useNavigate } from "react-router";
 

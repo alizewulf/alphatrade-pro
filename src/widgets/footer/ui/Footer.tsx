@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/button";
 import { EarthSVG, ShareSVG } from "@/shared/ui/icons";
 import InformationContainer from "./InformationContainer";
 import LinksContainer from "./LinksContainer";

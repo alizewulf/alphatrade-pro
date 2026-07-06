@@ -1,5 +1,5 @@
-import { Button } from "@/shared/ui/Button";
-import { SearchInput } from "@/shared/ui/Input";
+import { Button } from "@/shared/ui/button";
+import { SearchInput } from "@/shared/ui/input";
 import { Bell } from "@/shared/ui/icons";
 import { useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
