@@ -14,6 +14,7 @@ import { getWatchlist } from "@/entities/watchlist";
 import type { WatchlistItem } from "@/entities/watchlist";
 import LatestInsight from "@/widgets/dashboard/ui/latest-insight/LatestInsight";
 import TopMoveItem from "@/widgets/dashboard/ui/top-move-item/TopMoveItem";
+import MarketHeat from "@/widgets/dashboard/ui/market-heat/MarketHeat";
 
 function Dashboard() {
   const bgColor = "bg-[#1E293B]/70";
@@ -83,7 +84,7 @@ function Dashboard() {
         </div>
 
         <LatestInsight />
-        <div className="flex gap-4">
+        <div className="flex col-span-3 gap-4">
           <TopMoveItem
             type="gainer"
             items={[
@@ -100,6 +101,7 @@ function Dashboard() {
               { symbol: "AMZN", price: "$3,200.00", change: "-1.5%" },
             ]}
           ></TopMoveItem>
+          <MarketHeat/>
         </div>
       </div>
     </section>

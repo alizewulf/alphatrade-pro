@@ -7,7 +7,7 @@ function TopMoveItem({ type, items, gap }: TopMoveItemProps) {
   const isGainer = type === "gainer";
 
   return (
-    <Container className="w-70" containerGap={gap}>
+    <Container className="w-1/3" containerGap={gap}>
       <h3 className="text-[#DAE2FD] font-bold text-xl leading-7">
         {isGainer ? "Top Gainers" : "Top Losers"}
       </h3>
