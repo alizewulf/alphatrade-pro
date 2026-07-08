@@ -17,7 +17,7 @@ function TopMoveItem({ type, items, gap }: TopMoveItemProps) {
           <div className="flex items-center gap-2">
             <span
               className={`rounded-full w-4 h-4 ${
-                isGainer ? "bg-win" : "bg-lose"
+                isGainer ? "bg-positive" : "bg-negative"
               }`}
             />
             <span className="font-bold text-base leading-6 text-[#DAE2FD] uppercase">
@@ -27,7 +27,7 @@ function TopMoveItem({ type, items, gap }: TopMoveItemProps) {
 
           <div className="text-right">
             <div className="text-[#DAE2FD]">{item.price}</div>
-            <div className={isGainer ? "text-win" : "text-lose"}>
+            <div className={isGainer ? "text-positive" : "text-negative"}>
               {item.change}
             </div>
           </div>

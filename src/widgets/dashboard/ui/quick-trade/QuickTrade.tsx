@@ -4,11 +4,15 @@ import BuyButton from "@/features/trade/buy-order/ui/BuyButton";
 import SellButton from "@/features/trade/sell-order/ui/SellButton";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import TradeContainer from "./TradeContainer";
 
 function QuickTrade() {
   const [operationType, setOperationType] = useState<"buy" | "sell">("buy");
-  const [hidden, setHidden] = useState(false);
-
+  const [hidden, setHidden] = useState(true);
+  const [input, setInput] = useState({
+    assetSymbol: "",
+    amount: "",
+  });
   return (
     <AnimatePresence mode="wait">
       {!hidden && (
@@ -48,10 +52,33 @@ function QuickTrade() {
                 onClick={() => setOperationType("sell")}
               />
             </div>
+
+            <TradeContainer
+              item={{
+                title: "Asset Symbol",
+                value: "BTC",
+                placeholder: "$64,241",
+              }}
+              value={input.assetSymbol}
+              placeholder={true}
+              onChange={(value) => setInput({ ...input, assetSymbol: value })}
+            />
+
+            <TradeContainer
+              item={{
+                title: "Amount (USD)",
+                value: "0.00"
+              }}
+              value={input.amount}
+              onChange={(value) => setInput({ ...input, amount: value })}
+            />
+            <div className="w-full px-3">
+            <button className="py-3 w-full rounded-lg bg-[#ADC6FF] text-[#002E6A] cursor-pointer font-bold px-3">Review Order</button>
+            </div>
           </Container>
         </motion.div>
       )}
-      
+
       {hidden && (
         <motion.button
           key="open-button"
