@@ -4,13 +4,13 @@ import Trader1 from '../icons/Trader-1.png'
 import Trader2 from '../icons/Trader-2.png'
 import ActiveUsersIcon from "./ActiveUsersIcon";
 import VolumeSession from "./VolumeSession";
-function MarketHeat() {
+function MarketHeat({ children }: { children?: React.ReactNode }) {
   return (
-    <Container className="w-1/3 flex flex-col gap-2">
+    <Container className="w-1/3 flex flex-col gap-2 relative ">
         <h3 className="font-bold text-xl text-[#DAE2FD]">Market Heat</h3>
         <div className="flex flex-col gap-4">
             <p className="text-paragraph text-sm leading-5">Active users trading right now</p>
-            <div className="flex">
+            <div className="flex select-none">
                 <ActiveUsersIcon img={Trader} />
                 <ActiveUsersIcon img={Trader1} />
                 <ActiveUsersIcon img={Trader2} />
@@ -18,6 +18,7 @@ function MarketHeat() {
             </div>
             <VolumeSession isHigh={true}/>
         </div>
+        {children}
     </Container>
   )
 }

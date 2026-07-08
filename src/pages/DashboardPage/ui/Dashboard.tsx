@@ -15,6 +15,7 @@ import type { WatchlistItem } from "@/entities/watchlist";
 import LatestInsight from "@/widgets/dashboard/ui/latest-insight/LatestInsight";
 import TopMoveItem from "@/widgets/dashboard/ui/top-move-item/TopMoveItem";
 import MarketHeat from "@/widgets/dashboard/ui/market-heat/MarketHeat";
+import QuickTrade from "@/widgets/dashboard/ui/quick-trade/QuickTrade";
 
 function Dashboard() {
   const bgColor = "bg-[#1E293B]/70";
@@ -101,7 +102,9 @@ function Dashboard() {
               { symbol: "AMZN", price: "$3,200.00", change: "-1.5%" },
             ]}
           ></TopMoveItem>
-          <MarketHeat/>
+          <MarketHeat>
+            <QuickTrade />
+          </MarketHeat>
         </div>
       </div>
     </section>

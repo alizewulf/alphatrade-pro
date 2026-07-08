@@ -17,3 +17,8 @@
 .scrollbar {
   @apply scrollbar-thin scrollbar-thumb-primary-2 scrollbar-track-bgcolor;
 }
+
+/* Prevent horizontal scrolling without changing layout proportions */
+html, body {
+  overflow-x: hidden;
+}

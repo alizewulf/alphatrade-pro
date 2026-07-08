@@ -4,7 +4,7 @@ function Container({ children, containerGap, className }: {
   children: React.ReactNode }) {
   return (
     <div
-      className={`flex flex-col ${className} ${containerGap?  `gap-${containerGap}` : ""} bg-[#1E293B]/70 p-6 rounded-lg font-inter outline outline-[#FFFFFF]/10`}
+      className={`flex flex-col ${containerGap?  `gap-${containerGap}` : ""} bg-[#1E293B]/70 p-6 rounded-lg font-inter outline outline-[#FFFFFF]/10 ${className}`}
     >
       {children}
     </div>
