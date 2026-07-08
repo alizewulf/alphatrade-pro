@@ -5,14 +5,75 @@ import SellButton from "@/features/trade/sell-order/ui/SellButton";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import TradeContainer from "./TradeContainer";
+import { submitDemoTrade } from "@/features/trade/lib/demoTrade";
+
+const ASSET_OPTIONS = [
+  { symbol: "BTC", name: "Bitcoin" },
+  { symbol: "ETH", name: "Ethereum" },
+  { symbol: "SOL", name: "Solana" },
+  { symbol: "XRP", name: "Ripple" },
+  { symbol: "ADA", name: "Cardano" },
+  { symbol: "DOGE", name: "Dogecoin" },
+  { symbol: "LINK", name: "Chainlink" },
+];
 
 function QuickTrade() {
   const [operationType, setOperationType] = useState<"buy" | "sell">("buy");
   const [hidden, setHidden] = useState(true);
   const [input, setInput] = useState({
-    assetSymbol: "",
+    assetSymbol: "BTC",
     amount: "",
   });
+  const [feedback, setFeedback] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showAssetList, setShowAssetList] = useState(false);
+
+  const normalizeAmount = (value: string) => {
+    const sanitized = value.replace(/[^0-9.]/g, "");
+    const parts = sanitized.split(".");
+
+    if (parts.length > 2) {
+      return `${parts[0]}.${parts.slice(1).join("").replace(/\./g, "")}`;
+    }
+
+    if (parts.length === 2) {
+      return `${parts[0] || "0"}.${parts[1].slice(0, 2)}`;
+    }
+
+    return sanitized;
+  };
+
+  const handleReviewOrder = () => {
+    const amountValue = Number(input.amount);
+
+    setIsSubmitting(true);
+    setFeedback(null);
+
+    try {
+      const result = submitDemoTrade({
+        operationType,
+        assetSymbol: input.assetSymbol,
+        amount: amountValue,
+      });
+
+      if (!result.ok) {
+        setFeedback(result.error ?? "Something went wrong while processing the order.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      window.dispatchEvent(new Event("alpha-trade-demo-updated"));
+      setInput({ assetSymbol: "", amount: "" });
+      setFeedback(
+        `${operationType === "buy" ? "Buy" : "Sell"} order submitted for ${result.transaction?.symbol ?? input.assetSymbol.toUpperCase()}.`
+      );
+    } catch {
+      setFeedback("Something went wrong while processing the order.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <AnimatePresence mode="wait">
       {!hidden && (
@@ -53,28 +114,82 @@ function QuickTrade() {
               />
             </div>
 
-            <TradeContainer
-              item={{
-                title: "Asset Symbol",
-                value: "BTC",
-                placeholder: "$64,241",
-              }}
-              value={input.assetSymbol}
-              placeholder={true}
-              onChange={(value) => setInput({ ...input, assetSymbol: value })}
-            />
+            <div className="flex flex-col gap-2 px-4">
+              <span className="text-paragraph text-base leading-6">Asset</span>
+
+              <div className="relative w-full">
+                <input
+                  value={input.assetSymbol}
+                  readOnly
+                  onFocus={() => setShowAssetList(true)}
+                  onBlur={() => window.setTimeout(() => setShowAssetList(false), 120)}
+                  placeholder="Select asset"
+                  className="h-10 w-full rounded-sm bg-[#060E20] text-white placeholder:text-paragraph"
+                />
+
+                {showAssetList && (
+                  <div className="absolute z-20 mt-1 w-full rounded-sm border border-white/10 bg-[#060E20] shadow-lg">
+                    {ASSET_OPTIONS.map((asset) => (
+                      <button
+                        key={asset.symbol}
+                        type="button"
+                        className="flex w-full items-center justify-between px-3 py-2 text-left text-sm text-[#DAE2FD] transition hover:bg-white/10"
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => {
+                          setInput((prev) => ({ ...prev, assetSymbol: asset.symbol }));
+                          setShowAssetList(false);
+                        }}
+                      >
+                        <span>{asset.name}</span>
+                        <span className="text-[#ADC6FF]">{asset.symbol}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
 
             <TradeContainer
               item={{
                 title: "Amount (USD)",
-                value: "0.00"
+                value: "0.00",
               }}
               value={input.amount}
-              onChange={(value) => setInput({ ...input, amount: value })}
+              onChange={(value) =>
+                setInput((prev) => ({ ...prev, amount: normalizeAmount(value) }))
+              }
+              type="text"
+              inputMode="decimal"
+              onKeyDown={(event) => {
+                if (["e", "E", "+", "-"].includes(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              onWheel={(event) => event.currentTarget.blur()}
             />
+
             <div className="w-full px-3">
-            <button className="py-3 w-full rounded-lg bg-[#ADC6FF] text-[#002E6A] cursor-pointer font-bold px-3">Review Order</button>
+              <button
+                type="button"
+                className="w-full rounded-lg bg-[#ADC6FF] px-3 py-3 font-bold text-[#002E6A] cursor-pointer disabled:cursor-not-allowed disabled:opacity-70"
+                onClick={handleReviewOrder}
+                disabled={isSubmitting}
+              >
+                {isSubmitting
+                  ? "Processing..."
+                  : operationType === "buy"
+                    ? "Review Buy Order"
+                    : "Review Sell Order"}
+              </button>
             </div>
+
+            {feedback && (
+              <p
+                className={`px-4 text-sm ${feedback.includes("Insufficient") || feedback.includes("wrong") ? "text-[#FF6B6B]" : "text-[#4EDEA3]"}`}
+              >
+                {feedback}
+              </p>
+            )}
           </Container>
         </motion.div>
       )}

@@ -7,6 +7,7 @@ import CurrentHolding from "@/widgets/portfolio/current-holding";
 import Skeleton from "react-loading-skeleton";
 import { getPortfolio } from "@/entities/portfolio";
 import type { PortfolioData } from "@/entities/portfolio";
+import { DEMO_BALANCE_KEY, readDemoBalance, readDemoTransactions } from "@/features/trade/lib/demoTrade";
 
 function DemoPage() {
   const navigate = useNavigate();
@@ -14,18 +15,32 @@ function DemoPage() {
   const [portfolio, setPortfolio] = useState<PortfolioData | null>(null);
   const [loading, setLoading] = useState(true);
   const [balance, setBalance] = useState<number>(user?.onBalance ?? 0);
-
-  const demoKey = "alpha_trade_demo_balance";
+  const [transactions, setTransactions] = useState(readDemoTransactions());
+  const visibleTransactions = transactions.length > 0 ? transactions : portfolio?.transactions ?? [];
 
   useEffect(() => {
-    const stored = sessionStorage.getItem(demoKey);
-    if (stored) {
-      setBalance(Number(stored));
+    const storedBalance = readDemoBalance();
+    if (storedBalance) {
+      setBalance(storedBalance);
     } else if (user) {
       setBalance(user.onBalance);
-      sessionStorage.setItem(demoKey, String(user.onBalance));
+      sessionStorage.setItem(DEMO_BALANCE_KEY, String(user.onBalance));
     }
   }, [user]);
+
+  useEffect(() => {
+    const syncBalance = () => {
+      setBalance(readDemoBalance());
+      setTransactions(readDemoTransactions());
+    };
+
+    syncBalance();
+    window.addEventListener("alpha-trade-demo-updated", syncBalance);
+
+    return () => {
+      window.removeEventListener("alpha-trade-demo-updated", syncBalance);
+    };
+  }, []);
 
   useEffect(() => {
     async function loadPortfolio() {
@@ -44,15 +59,13 @@ function DemoPage() {
   }, []);
 
   useEffect(() => {
-    if (demoKey) {
-      sessionStorage.setItem(demoKey, String(balance));
-    }
+    sessionStorage.setItem(DEMO_BALANCE_KEY, String(balance));
   }, [balance]);
 
   useEffect(() => {
-    const storedAmount = sessionStorage.getItem(demoKey);
+    const storedAmount = sessionStorage.getItem(DEMO_BALANCE_KEY);
     if (!storedAmount && user) {
-      sessionStorage.setItem(demoKey, String(user.onBalance));
+      sessionStorage.setItem(DEMO_BALANCE_KEY, String(user.onBalance));
     }
   }, [user]);
 
@@ -60,7 +73,9 @@ function DemoPage() {
     if (user) {
       const initial = user.onBalance;
       setBalance(initial);
-      sessionStorage.setItem(demoKey, String(initial));
+      sessionStorage.setItem(DEMO_BALANCE_KEY, String(initial));
+      sessionStorage.setItem("alpha_trade_demo_transactions", "[]");
+      setTransactions([]);
     }
   };
 
@@ -161,9 +176,9 @@ function DemoPage() {
               <h2 className="mb-6 text-xl font-semibold">Recent Transaction</h2>
               {loading ? (
                 <Skeleton count={3} height={72} />
-              ) : portfolio?.transactions ? (
+              ) : (
                 <div className="space-y-4">
-                  {portfolio.transactions.map((tx) => (
+                  {visibleTransactions.map((tx) => (
                     <div key={tx.id} className="rounded-2xl border border-white/10 bg-neutral/70 p-4">
                       <div className="flex items-center justify-between gap-4 text-sm text-paragraph">
                         <span>{tx.type}</span>
@@ -173,9 +188,10 @@ function DemoPage() {
                       <p className="text-xs text-gray-400">{tx.status}</p>
                     </div>
                   ))}
+                  {visibleTransactions.length === 0 && (
+                    <p>No transactions available.</p>
+                  )}
                 </div>
-              ) : (
-                <p>No transactions available.</p>
               )}
             </div>
           </div>

@@ -1,12 +1,29 @@
+import type {
+  InputHTMLAttributes,
+  KeyboardEventHandler,
+  ReactNode,
+  WheelEventHandler,
+} from "react";
+
 interface TradeContainerProps {
   item: {
     title: string;
     value?: string;
     placeholder?: string;
   };
-  placeholder?: boolean
+  placeholder?: boolean;
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
+  children?: ReactNode;
+  type?: string;
+  inputMode?: InputHTMLAttributes<HTMLInputElement>["inputMode"];
+  min?: string;
+  step?: string;
+  readOnly?: boolean;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
+  onWheel?: WheelEventHandler<HTMLInputElement>;
 }
 
 function TradeContainer({
@@ -14,12 +31,20 @@ function TradeContainer({
   value,
   onChange,
   placeholder = false,
+  children,
+  type = "text",
+  inputMode,
+  min,
+  step,
+  readOnly = false,
+  onFocus,
+  onBlur,
+  onKeyDown,
+  onWheel,
 }: TradeContainerProps) {
   return (
     <div className="flex flex-col gap-2 px-4">
-      <span className="text-paragraph text-base leading-6">
-        {item.title}
-      </span>
+      <span className="text-paragraph text-base leading-6">{item.title}</span>
 
       <div className="relative w-full">
         {!value && item.value && (
@@ -28,12 +53,22 @@ function TradeContainer({
           </span>
         )}
 
+        {children}
+
         <input
           value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={placeholder? item.placeholder:""}
-          type="text"
-          className="bg-[#060E20] h-10 text-white placeholder:text-right placeholder:text-paragraph w-full rounded-sm placeholder:ml-3"
+          onChange={(e) => onChange?.(e.target.value)}
+          placeholder={placeholder ? item.placeholder : ""}
+          type={type}
+          inputMode={inputMode}
+          min={min}
+          step={step}
+          readOnly={readOnly}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+          onWheel={onWheel}
+          className="h-10 w-full rounded-sm bg-[#060E20] text-white placeholder:ml-3 placeholder:text-right placeholder:text-paragraph [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
       </div>
     </div>

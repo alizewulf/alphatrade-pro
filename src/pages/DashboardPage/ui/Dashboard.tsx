@@ -19,7 +19,7 @@ import QuickTrade from "@/widgets/dashboard/ui/quick-trade/QuickTrade";
 
 function Dashboard() {
   const bgColor = "bg-[#1E293B]/70";
-  const { user } = useAuth();
+  const { } = useAuth();
   const [watchlist, setWatchlist] = useState<WatchlistItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,7 +42,7 @@ function Dashboard() {
     <section className="flex flex-col gap-8 font-inter p-8 bg-bgcolor">
       <div className="grid gap-4 xl:grid-cols-[2.2fr_0.9fr_0.9fr] items-stretch">
         <ValueWrapper bgColor={bgColor}>
-          <ValueHeader user={user} />
+          <ValueHeader />
           <ValueFooter />
         </ValueWrapper>
 
