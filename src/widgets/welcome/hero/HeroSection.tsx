@@ -4,6 +4,7 @@ import HeroText from "./Hero-text";
 import StatsList from "./StatsList";
 import { Button } from "@/shared/ui/button";
 import { useAuth } from "@/app/providers/AuthContext";
+import { ROUTE_PATHS } from "@/app/routes";
 import { useNavigate } from "react-router";
 
 
@@ -23,7 +24,7 @@ function HeroSection() {
             variant="primary"
             size="lg"
             onClick={() => {
-              isAuth ? navigate("/portfolio") : navigate("/login");
+              isAuth ? navigate(ROUTE_PATHS.portfolio) : navigate(ROUTE_PATHS.login);
             }}
           >
             Start Trading
@@ -31,7 +32,7 @@ function HeroSection() {
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => navigate("/demo")}
+            onClick={() => navigate(ROUTE_PATHS.demo)}
           >
             View Demo
           </Button>

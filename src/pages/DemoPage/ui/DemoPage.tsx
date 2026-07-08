@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
+import { ROUTE_PATHS } from "@/app/routes";
 import { PortfolioChart } from "@/widgets/portfolio/portfolio-chart";
 import CurrentHolding from "@/widgets/portfolio/current-holding";
 import Skeleton from "react-loading-skeleton";
@@ -78,7 +79,7 @@ function DemoPage() {
           <p className="mb-4">Please login to access demo mode.</p>
           <button
             className="rounded-xl bg-primary px-6 py-3 text-white"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate(ROUTE_PATHS.login)}
           >
             Login
           </button>
@@ -100,7 +101,7 @@ function DemoPage() {
           <div className="flex gap-3">
             <button
               className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:bg-white/10"
-              onClick={() => navigate("/home")}
+              onClick={() => navigate(ROUTE_PATHS.home)}
             >
               Home
             </button>

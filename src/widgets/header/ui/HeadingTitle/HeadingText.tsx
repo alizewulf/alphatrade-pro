@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import { ROUTE_PATHS } from "@/app/routes";
 import type { HeadingTitleProps } from "./HeadingTitleWrapper";
 
 function HeadingText({ isVip, isDemo }: HeadingTitleProps) {
@@ -11,7 +12,7 @@ function HeadingText({ isVip, isDemo }: HeadingTitleProps) {
     : "font-bold text-xl leading-7 tracking-normal text-[#DAE2FD]";
 
   return (
-    <h3 className={titleClass} onClick={() => navigate(isDemo ? "/demo" : "/home")}>
+    <h3 className={titleClass} onClick={() => navigate(isDemo ? ROUTE_PATHS.demo : ROUTE_PATHS.home)}>
       {title}
     </h3>
   );

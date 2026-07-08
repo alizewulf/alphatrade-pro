@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
 import { z } from "zod";
 import { loginUser } from "../api/login";
 import { Button } from "@/shared/ui/button";
 import { useAuth } from "@/app/providers/AuthContext";
+import { DEFAULT_AUTH_REDIRECT, ROUTE_PATHS } from "@/app/routes";
 
 const loginSchema = z.object({
   login: z.string().min(1, "Login is required"),
@@ -19,6 +20,7 @@ function validateLogin(values: LoginFormValues) {
 
 function LoginForm() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
 
   const handleSubmit = async (
@@ -36,7 +38,10 @@ function LoginForm() {
     }
 
     login(result.user);
-    navigate("/dashboard");
+
+    const params = new URLSearchParams(location.search);
+    const redirectTo = params.get("redirect") ?? DEFAULT_AUTH_REDIRECT;
+    navigate(redirectTo);
   };
 
   return (
@@ -121,7 +126,7 @@ function LoginForm() {
               <button
                 type="button"
                 className="text-secondary hover:underline cursor-pointer"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate(ROUTE_PATHS.signup)}
               >
                 Register
               </button>

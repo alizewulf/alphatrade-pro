@@ -1,19 +1,27 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import AppLayout from "@/app/AppLayout";
+import RequireAuth from "@/app/guards/RequireAuth";
+import PublicOnly from "@/app/guards/PublicOnly";
+import { ROUTE_PATHS } from "@/app/routes";
 import WelcomePage from "@/pages/WelcomePage/";
 import LoginPage from "@/pages/LoginPage/";
 import SignUpPage from "@/pages/SignUpPage/";
 import PortfolioPage from "@/pages/PortfolioPage";
 import Dashboard from "@/pages/DashboardPage";
 import DemoPage from "@/pages/DemoPage";
+
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
     children: [
       {
-        path: "home",
-        element: <WelcomePage />,
+        path: ROUTE_PATHS.home.replace("/", ""),
+        element: (
+          <PublicOnly>
+            <WelcomePage />
+          </PublicOnly>
+        ),
         handle: {
           showSocials: true,
           showSidebar: false,
@@ -21,25 +29,37 @@ export const router = createBrowserRouter([
       },
       {
         index: true,
-        element: <Navigate to="/home" replace />,
+        element: <Navigate to={ROUTE_PATHS.home} replace />,
       },
       {
-        path: "login",
-        element: <LoginPage />,
+        path: ROUTE_PATHS.login.replace("/", ""),
+        element: (
+          <PublicOnly>
+            <LoginPage />
+          </PublicOnly>
+        ),
         handle: {
           showSidebar: false,
         },
       },
       {
-        path: "signup",
-        element: <SignUpPage />,
+        path: ROUTE_PATHS.signup.replace("/", ""),
+        element: (
+          <PublicOnly>
+            <SignUpPage />
+          </PublicOnly>
+        ),
         handle: {
           showSidebar: false,
         },
       },
       {
-        path: "dashboard",
-        element: <Dashboard />,
+        path: ROUTE_PATHS.dashboard.replace("/", ""),
+        element: (
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        ),
         handle: {
           showSidebar: true,
           isVip: true,
@@ -48,8 +68,12 @@ export const router = createBrowserRouter([
         },
       },
       {
-        path: "portfolio",
-        element: <PortfolioPage   />,
+        path: ROUTE_PATHS.portfolio.replace("/", ""),
+        element: (
+          <RequireAuth>
+            <PortfolioPage />
+          </RequireAuth>
+        ),
         handle: {
           showSidebar: true,
           isVip: true,
@@ -58,7 +82,7 @@ export const router = createBrowserRouter([
         },
       },
       {
-        path: "demo",
+        path: ROUTE_PATHS.demo.replace("/", ""),
         element: <DemoPage />,
         handle: {
           showSidebar: false,

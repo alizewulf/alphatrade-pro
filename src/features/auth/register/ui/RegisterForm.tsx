@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
 import { z } from "zod";
 import { getUsers, registerUser } from "@/entities/user";
+import { ROUTE_PATHS } from "@/app/routes";
 
 const registerSchema = z.object({
   login: z.string().min(3, "Login is required"),
@@ -44,7 +45,7 @@ export const RegisterForm = () => {
         isVip: false,
       });
 
-      navigate("/login");
+      navigate(ROUTE_PATHS.login);
     } catch {
       helpers.setStatus("Registration failed. Please try again later.");
       helpers.setSubmitting(false);

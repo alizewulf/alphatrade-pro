@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { ROUTE_PATHS } from "@/app/routes";
 import Dashboard from "./icons/Dashboard";
 import LineSVG from "./icons/LineSVG";
 import PortfolioSVG from "./icons/PortfolioSVG";
@@ -22,7 +23,7 @@ export const sidebarItems: SidebarItem[] = [
   {
     id: "dashboard",
     label: "Dashboard",
-    path: "/dashboard",
+    path: ROUTE_PATHS.dashboard,
     svg: Dashboard,
   },
   {
@@ -34,7 +35,7 @@ export const sidebarItems: SidebarItem[] = [
   {
     id: "portfolio",
     label: "Portfolio",
-    path: "/portfolio",
+    path: ROUTE_PATHS.portfolio,
     svg: PortfolioSVG,
   },
   {

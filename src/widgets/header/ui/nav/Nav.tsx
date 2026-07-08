@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import { ROUTE_PATHS } from "@/app/routes";
 
 function Nav() {
   const navStyle = ({ isActive }: { isActive: boolean }) =>
@@ -7,18 +8,18 @@ function Nav() {
       : "text-paragraph cursor-pointer";
   return (
     <>
-      <NavLink to={"/home"} className={navStyle}>
+      <NavLink to={ROUTE_PATHS.home} className={navStyle}>
         Dashboard
       </NavLink>
       <NavLink
-        to={"/markets"}
+        to={ROUTE_PATHS.dashboard}
         className={navStyle}
         onClick={(e) => e.preventDefault()}
       >
         Markets
       </NavLink>
 
-      <NavLink to={"/portfolio"} className={navStyle}>
+      <NavLink to={ROUTE_PATHS.portfolio} className={navStyle}>
         Portfolio
       </NavLink>
     </>

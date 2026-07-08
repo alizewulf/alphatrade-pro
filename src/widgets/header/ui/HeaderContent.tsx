@@ -3,6 +3,7 @@ import { SearchInput } from "@/shared/ui/input";
 import { Bell } from "@/shared/ui/icons";
 import { useNavigate } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
+import { DEFAULT_AFTER_LOGOUT } from "@/app/routes";
 import HeadingTitle from "./HeadingTitle/HeadingTitleWrapper";
 import Nav from "./nav/Nav";
 import WalletSVG from "@/widgets/portfolio/portfolio-chart/ui/icons/WalletSVG";
@@ -19,7 +20,7 @@ function HeaderContent({ variant, isDemo }: HeaderProps) {
 
   const handleLogout = () => {
     logout();
-    navigate("/home");
+    navigate(DEFAULT_AFTER_LOGOUT);
   };
 
   return (
