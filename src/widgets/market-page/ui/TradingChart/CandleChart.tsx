@@ -20,12 +20,14 @@ function CandleChart({object, onChange}: CandleChartProps) {
   const metrics = useMemo(() => getChartMetrics(candles), [candles]);
 
   const latest = candles[candles.length - 1];
-  const changePercent = latest
-    ? ((latest.close - candles[0].open) / candles[0].open) * 100
+  const previous = candles[candles.length - 2];
+  const changePercent = latest && previous
+    ? ((latest.close - previous.close) / previous.close) * 100
     : 0;
-    useEffect(() => {
-            onChange(changePercent);
-        }, [changePercent, onChange]);
+
+  useEffect(() => {
+    onChange(changePercent);
+  }, [changePercent, onChange]);
   const toY = (value: number) => {
     const ratio = (value - metrics.min) / metrics.spread;
     return PADDING + (1 - ratio) * CHART_HEIGHT;

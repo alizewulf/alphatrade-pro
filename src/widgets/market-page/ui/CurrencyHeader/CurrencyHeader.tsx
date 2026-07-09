@@ -12,7 +12,11 @@ interface CurrencyHeaderProps {
   changePercent: number;
 }
 
-function CurrencyHeader({ object, result, changePercent }: CurrencyHeaderProps) {
+function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
+  const isPositive = changePercent >= 0;
+  const sign = isPositive ? "+" : "-";
+  const absolutePercent = Math.abs(changePercent).toFixed(2);
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between">
@@ -29,10 +33,10 @@ function CurrencyHeader({ object, result, changePercent }: CurrencyHeaderProps) 
           {object.category}
         </span>
         <div className="flex items-center gap-2">
-          <ArrowIcon scheme={result === "win" ? "positive" : "negative"} />
-          <span className={`font-semibold text-xl leading-7 ${result === "win" ? "text-positive" : "text-negative"}`}>
-          {result === "win" ? "+" : "-"}
-          {changePercent.toFixed(2)}%
+          <ArrowIcon scheme={isPositive ? "positive" : "negative"} />
+          <span className={`font-semibold text-xl leading-7 ${isPositive ? "text-positive" : "text-negative"}`}>
+            {sign}
+            {absolutePercent}%
           </span>
         </div>
       </div>
