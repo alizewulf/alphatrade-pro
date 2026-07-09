@@ -5,6 +5,7 @@ export const ROUTE_PATHS = {
   dashboard: "/dashboard",
   portfolio: "/portfolio",
   demo: "/demo",
+  market: "/market"
 } as const;
 
 export const DEFAULT_AUTH_REDIRECT = ROUTE_PATHS.dashboard;

@@ -9,6 +9,7 @@ import SignUpPage from "@/pages/SignUpPage/";
 import PortfolioPage from "@/pages/PortfolioPage";
 import Dashboard from "@/pages/DashboardPage";
 import DemoPage from "@/pages/DemoPage";
+import MarketPage from "@/pages/MarketsPage";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,20 @@ export const router = createBrowserRouter([
         element: (
           <RequireAuth>
             <Dashboard />
+          </RequireAuth>
+        ),
+        handle: {
+          showSidebar: true,
+          isVip: true,
+          variant: "secondary",
+          footerFullWidth: false,
+        },
+      },
+      {
+        path: ROUTE_PATHS.market.replace("/", ""),
+        element: (
+          <RequireAuth>
+            <MarketPage />
           </RequireAuth>
         ),
         handle: {

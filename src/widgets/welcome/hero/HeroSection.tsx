@@ -1,6 +1,6 @@
 import ConfirmationBadge from "./ConfirmationBadge";
-import HeroImg from "./Hero-img";
-import HeroText from "./Hero-text";
+import HeroImg from "./HeroImg";
+import HeroText from "./HeroText";
 import StatsList from "./StatsList";
 import { Button } from "@/shared/ui/button";
 import { useAuth } from "@/app/providers/AuthContext";
