@@ -104,11 +104,13 @@ function QuickTrade() {
 
             <div className="flex justify-between gap-2 px-4">
               <BuyButton
+              variant="primary"
                 state={operationType}
                 onClick={() => setOperationType("buy")}
               />
 
               <SellButton
+              variant="primary"
                 state={operationType}
                 onClick={() => setOperationType("sell")}
               />

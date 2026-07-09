@@ -1,8 +1,19 @@
-function BuyButton({ state, onClick }: { state: "buy" | "sell"; onClick: () => void }) {
+import clsx from "clsx";
+import type { ButtonTradeProps } from "../../type";
+
+function BuyButton({ state, onClick, variant }:ButtonTradeProps) {
   return (
-    <button
-      className={`px-12 py-2 w-1/2 ${state === "buy" ? "bg-positive" : "bg-[#2D3449]"} rounded-sm font-bold text-xs leading-3 tracking-[0.6px] ${state === "buy" ? "text-[#003824]" : "text-[#DAE2FD]"} cursor-pointer`}
-      onClick={onClick}
+    <button className={clsx(
+  "px-12 py-2 w-1/2 rounded-sm font-bold text-xs leading-3 tracking-[0.6px] cursor-pointer",
+  {
+    "bg-positive text-[#003824]": variant === "primary" && state === "buy",
+    "bg-[#2D3449] text-[#DAE2FD]": variant === "primary" && state !== "buy",
+
+    "text-positive border-b border-b-positive rounded-none": variant === "secondary" && state === "buy",
+    "bg-transparent text-paragraph": variant === "secondary" && state !== "buy",
+  }
+)}
+    onClick={onClick}
     >
       Buy
     </button>
