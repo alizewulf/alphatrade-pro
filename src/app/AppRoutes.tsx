@@ -106,6 +106,10 @@ export const router = createBrowserRouter([
           isDemo: true,
         },
       },
+      {
+        path: "*",
+        element: <Navigate to={ROUTE_PATHS.dashboard}/>
+      },
     ],
   },
 ]);

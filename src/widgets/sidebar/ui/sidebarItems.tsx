@@ -3,7 +3,6 @@ import { ROUTE_PATHS } from "@/app/routes";
 import Dashboard from "./icons/Dashboard";
 import LineSVG from "./icons/LineSVG";
 import PortfolioSVG from "./icons/PortfolioSVG";
-import HistorySVG from "./icons/HistorySVG";
 import SettingsSVG from "./icons/SettingsSVG";
 import Support from "./icons/Support";
 
@@ -37,13 +36,7 @@ export const sidebarItems: SidebarItem[] = [
     label: "Portfolio",
     path: ROUTE_PATHS.portfolio,
     svg: PortfolioSVG,
-  },
-  {
-    id: "history",
-    label: "History",
-    path: "/history",
-    svg: HistorySVG,
-  },
+  }
 ];
 
 export const downsideItems: BottomSidebarItem[] = [
