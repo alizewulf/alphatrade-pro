@@ -15,8 +15,7 @@ interface CurrencyHeaderProps {
 
 function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
   const isPositive = changePercent >= 0;
-
-const currentPrice = calculatePrice(object.price, changePercent);
+  const currentPrice = calculatePrice(object.price, changePercent);
   const sign = isPositive ? "+" : "-";
   const absolutePercent = Math.abs(changePercent).toFixed(2);
 

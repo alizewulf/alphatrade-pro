@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { Range } from './PortfolioChart'
+import { useAuth } from '@/app/providers/AuthContext'
 
 interface UserBalanceContainerProps {
   balance: number
@@ -8,11 +9,13 @@ interface UserBalanceContainerProps {
 
 }
 
-function UserBalanceContainer({balance, range, setRange}:UserBalanceContainerProps) {
+function UserBalanceContainer({range, setRange}:UserBalanceContainerProps) {
+  const {user} = useAuth()
+  
   return (
       <div className="flex items-start justify-between mb-1">
         <h2 className="text-[#DAE2FD] text-5xl leading-[52.8px] tracking-[0.96px] font-bold">
-          ${balance.toString()}
+          ${user?.onBalance.toString()}
         </h2>
 
         <div className="flex gap-1 bg-white/5 rounded-lg p-1">

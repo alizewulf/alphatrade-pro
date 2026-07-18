@@ -41,7 +41,7 @@ export const RegisterForm = () => {
         ...values,
         onBalance: 1500,
         img: "https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png",
-        cardData: null,
+        isDemo: false,
         isVip: false,
       });
 

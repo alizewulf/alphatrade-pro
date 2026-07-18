@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ButtonTradeProps } from "../../type";
+import type { ButtonTradeProps } from "../../model/types";
 
 function BuyButton({ state, onClick, variant }:ButtonTradeProps) {
   return (
