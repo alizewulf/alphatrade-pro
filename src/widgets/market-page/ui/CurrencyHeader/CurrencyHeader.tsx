@@ -1,3 +1,4 @@
+import { calculatePrice } from "@/shared/lib/calculatePrice";
 import ArrowIcon from "@/shared/ui/icons/ArrowIcon";
 
 type Results = "win" | "lose";
@@ -15,8 +16,7 @@ interface CurrencyHeaderProps {
 function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
   const isPositive = changePercent >= 0;
 
-  const updatedPrice = object.price * (1 + changePercent / 100);
-
+const currentPrice = calculatePrice(object.price, changePercent);
   const sign = isPositive ? "+" : "-";
   const absolutePercent = Math.abs(changePercent).toFixed(2);
 
@@ -28,7 +28,7 @@ function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
         </span>
 
         <p className="text-[#DAE2FD] font-bold tracking-[-1px] text-5xl">
-          ${updatedPrice.toFixed(2)}
+          ${currentPrice.toFixed(2)}
         </p>
       </div>
 
