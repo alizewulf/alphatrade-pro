@@ -6,7 +6,6 @@ import TradeExecution from "@/widgets/market-page/ui/TradeExecution";
 function MarketPage() {
   const [changePercent, setChangePercent] = useState(0);
   const result = changePercent >= 0 ? "win" : "lose";
-
   return (
     <section className="bg-bgcolor flex font-inter flex-col gap-6 p-4">
         <CurrencyHeader object={BTCObject} result={result} changePercent={changePercent} />

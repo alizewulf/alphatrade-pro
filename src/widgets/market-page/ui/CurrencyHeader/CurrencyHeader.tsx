@@ -14,6 +14,9 @@ interface CurrencyHeaderProps {
 
 function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
   const isPositive = changePercent >= 0;
+
+  const updatedPrice = object.price * (1 + changePercent / 100);
+
   const sign = isPositive ? "+" : "-";
   const absolutePercent = Math.abs(changePercent).toFixed(2);
 
@@ -23,8 +26,9 @@ function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
         <span className="text-[#DAE2FD] font-semibold text-4xl tracking-[-0.32px]">
           {object.name}
         </span>
+
         <p className="text-[#DAE2FD] font-bold tracking-[-1px] text-5xl">
-          ${object.price.toString()}
+          ${updatedPrice.toFixed(2)}
         </p>
       </div>
 
@@ -32,9 +36,15 @@ function CurrencyHeader({ object, changePercent }: CurrencyHeaderProps) {
         <span className="text-paragraph text-base leading-6">
           {object.category}
         </span>
+
         <div className="flex items-center gap-2">
           <ArrowIcon scheme={isPositive ? "positive" : "negative"} />
-          <span className={`font-semibold text-xl leading-7 ${isPositive ? "text-positive" : "text-negative"}`}>
+
+          <span
+            className={`font-semibold text-xl leading-7 ${
+              isPositive ? "text-positive" : "text-negative"
+            }`}
+          >
             {sign}
             {absolutePercent}%
           </span>
