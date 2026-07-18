@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import EstimatedPriceField from "./EstimatedPriceField";
-import OrderType from "./OrderType";
-import QuantityField from "./QuantityField";
-import TradeExecutionHeader from "./TradeExecutionHeader";
+import EstimatedPriceField from "./components/EstimatedPriceField";
+import OrderType from "./components/OrderType";
+import QuantityField from "./components/QuantityField";
+import TradeExecutionHeader from "./components/TradeExecutionHeader";
 
 function TradeExecution() {
   const [state, setState] = useState<"buy" | "sell">("buy");
@@ -35,3 +35,4 @@ function TradeExecution() {
 }
 
 export default TradeExecution;
+
