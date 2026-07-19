@@ -1,8 +1,10 @@
+import NewsPaper, { AbstractSVG } from "@/widgets/market/ui/CompanyInfo/icons";
 import type {
   ObjectType,
   StockStats,
   MarketSentimentItem,
   CompanyData,
+  CompanyNews,
 } from "./interfaces.types";
 
 export const BTCObject: ObjectType = {
@@ -16,12 +18,12 @@ export const marketSentiment: MarketSentimentItem[] = [
   {
     type: "Bullish",
     value: 53,
-    color: "text-positive"
+    color: "text-positive",
   },
   {
     type: "Bearish",
     value: 47,
-    color: "text-negative"
+    color: "text-negative",
   },
 ];
 
@@ -44,8 +46,29 @@ export const stockStatsData: StockStats[] = [
   },
 ];
 
-export const companyData:CompanyData = {
+export const companyData: CompanyData = {
   ceo: "Tim Cook",
   founded: 1976,
-  employees: "161,000"
-}
+  employees: "161,000",
+};
+
+export const companyNews: CompanyNews[] = [
+  {
+    icon: AbstractSVG,
+    source: "Bloomberg",
+    time: "5 hours ago",
+    title: `Morgan Stanley reiterates
+"Overweight" rating on AAPL
+shares.`,
+color: "bg-positive/20"
+  },
+  {
+    icon: NewsPaper,
+    source: "Reuters",
+    time: "2 hours ago",
+    title: `Apple Vision Pro sees strong
+initial demand in enterprise
+sectors.`,
+color: "bg-[#ADC6FF]/20"
+  },
+];

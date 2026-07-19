@@ -1,5 +1,5 @@
 import { CandleChart, CurrencyHeader } from "@/widgets/market"
-import { BTCObject, companyData, marketSentiment, stockStatsData } from "./data/objects"
+import { BTCObject, companyData, marketSentiment, stockStatsData } from "../data/objects"
 import { useState } from "react";
 import TradeExecution from "@/widgets/market/ui/TradeExecution";
 import StockStats from "@/widgets/market/ui/StockStats";
@@ -10,9 +10,9 @@ function MarketPage() {
   const [changePercent, setChangePercent] = useState(0);
   const result = changePercent >= 0 ? "win" : "lose";
   return (
-    <section className="bg-bgcolor flex font-inter flex-col gap-6 p-4">
+    <section className="bg-bgcolor flex font-inter w-full flex-col gap-6 p-4">
         <CurrencyHeader object={BTCObject} result={result} changePercent={changePercent} />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full">
           <div className="flex gap-4">
            <CandleChart object={BTCObject} onChange={setChangePercent} />
            <TradeExecution/>
@@ -22,7 +22,7 @@ function MarketPage() {
            <MarketSentiment data={marketSentiment}/>
           </div>
           <div className="flex gap-4 justify-between">
-            <CompanyInfo object={companyData}/>
+            <CompanyInfo data={companyData}/>
           </div>
         </div>
     </section>

@@ -1,3 +1,5 @@
+import type { ComponentType, SVGProps } from "react";
+
 export interface ObjectType {
   name: string;
   price: number;
@@ -24,4 +26,12 @@ export interface CompanyData {
   ceo: string;
   founded: number;
   employees: string;
+}
+
+export interface CompanyNews {
+  icon: ComponentType<SVGProps<SVGSVGElement>>
+  title: string,
+  time: string,
+  source: string,
+  color: string
 }

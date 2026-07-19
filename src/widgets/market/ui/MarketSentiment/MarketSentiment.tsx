@@ -1,4 +1,4 @@
-import type { MarketSentimentProps } from "@/pages/MarketsPage/ui/data/interfaces.types";
+import type { MarketSentimentProps } from "@/pages/MarketsPage/data/interfaces.types";
 import Container from "@/shared/ui/container";
 import React from "react";
 import Caption from "./components";

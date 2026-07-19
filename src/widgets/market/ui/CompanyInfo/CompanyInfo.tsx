@@ -1,11 +1,12 @@
 import Container from "@/shared/ui/container";
 import React from "react";
-import EmployeeInfo from "./components";
-import type { CompanyData } from "@/pages/MarketsPage/ui/data/interfaces.types";
+import EmployeeInfo, { CompanyNews } from "./components";
+import type { CompanyData } from "@/pages/MarketsPage/data/interfaces.types";
+import { companyNews } from "@/pages/MarketsPage/data/objects";
 
-function CompanyInfo({object}:{object:CompanyData}): React.JSX.Element {
+function CompanyInfo({ data }: { data: CompanyData }): React.JSX.Element {
   return (
-    <Container className="max-w-172">
+    <Container className="flex w-4/5">
       <button className="py-4 px-6 w-fit cursor-pointer font-semibold text-sm leading-3 text-[#ADC6FF] border-b border-[#ADC6FF]">
         About
       </button>
@@ -21,7 +22,12 @@ function CompanyInfo({object}:{object:CompanyData}): React.JSX.Element {
           various platforms, including the App Store, that allow customers to
           discover and download applications and digital content.
         </p>
-        <EmployeeInfo object={object}/>
+        <div className="flex w-full gap-10 items-center justify-between">
+        <EmployeeInfo data={data} />
+        <div className="flex flex-col justify-between gap-3">
+        <CompanyNews news={companyNews} />
+        </div>
+        </div>
       </div>
     </Container>
   );
