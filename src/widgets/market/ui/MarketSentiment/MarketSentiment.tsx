@@ -1,12 +1,13 @@
 import type { MarketSentimentProps } from "@/pages/MarketsPage/ui/data/interfaces.types";
 import Container from "@/shared/ui/container";
 import React from "react";
+import Caption from "./components";
 
 function MarketSentiment({ data }: MarketSentimentProps): React.JSX.Element {
   const bullish = data.find((item) => item.type === "Bullish")?.value ?? 0;
 
   return (
-    <Container className="w-full h-42.5 gap-4">
+    <Container className="w-full gap-4">
       <span className="font-semibold text-xs leading-3 tracking-[0.6px] text-[#DAE2FD] uppercase">
         market sentiment
       </span>
@@ -29,6 +30,7 @@ function MarketSentiment({ data }: MarketSentimentProps): React.JSX.Element {
           }}
         />
       </div>
+      <Caption/>
     </Container>
   );
 }

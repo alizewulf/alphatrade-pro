@@ -1,6 +1,6 @@
 import StatsList from "@/widgets/welcome/hero/StatsList";
 import Coinbox from "@/widgets/welcome/icons/Coinbox";
-import LightningIcon from "@/widgets/welcome/icons/LightningIcon";
+import LightningIcon from "@/shared/ui/icons/LightningIcon";
 import Traffic from "@/widgets/welcome/icons/Traffic";
 
 function StatsListWrapper() {
