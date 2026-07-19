@@ -1,7 +1,9 @@
 import { CandleChart, CurrencyHeader } from "@/widgets/market-page"
-import { BTCObject } from "./data/object"
+import { BTCObject, stockStatsData } from "./data/object"
 import { useState } from "react";
 import TradeExecution from "@/widgets/market-page/ui/TradeExecution";
+import StockStats from "@/widgets/market-page/ui/StockStats";
+import MarketSentiment from "@/widgets/market-page/ui/MarketSentiment";
 
 function MarketPage() {
   const [changePercent, setChangePercent] = useState(0);
@@ -13,6 +15,10 @@ function MarketPage() {
           <div className="flex gap-4">
            <CandleChart object={BTCObject} onChange={setChangePercent} />
            <TradeExecution/>
+          </div>
+          <div className="flex gap-4 justify-between">
+           <StockStats object={stockStatsData}/>
+           <MarketSentiment/>
           </div>
         </div>
     </section>

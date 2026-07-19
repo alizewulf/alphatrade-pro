@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { useCandleSimulation } from "./hooks/useCandleSimulation";
 import { getChartMetrics } from "./model/candleSimulation";
-import type { ObjectType } from "@/pages/MarketsPage/ui/data/object";
+import type { ObjectType } from "@/pages/MarketsPage/ui/data/interfaces";
 
 const CHART_WIDTH = 900;
 const CHART_HEIGHT = 240;
@@ -48,7 +48,7 @@ function CandleChart({object, onChange}: CandleChartProps) {
   });
 
   return (
-    <div className="rounded-3xl border border-slate-800/70 bg-slate-950/80 p-4 shadow-2xl w-10/12 shadow-black/20">
+    <div className="rounded-3xl border border-slate-800/70 bg-slate-950/80 p-4 shadow-2xl w-10/12 shadow-black/20 max-h-125">
       <div className="mb-3 flex items-center justify-between">
         <div>
           <p className="text-lg font-semibold text-white">{object.name}</p>

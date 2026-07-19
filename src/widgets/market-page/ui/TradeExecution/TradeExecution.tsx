@@ -8,10 +8,11 @@ import TradeExecutionHeader from "./components/TradeExecutionHeader";
 import { useTrade } from "@/features/trade/model/useTrade";
 import { useBalance } from "@/features/trade/model/useBalance";
 
+
 function TradeExecution() {
   const trade = useTrade();
   const balance = useBalance();
-
+  
 
   const numericValue = useMemo(() => {
     const n = Number(trade.input.amount);

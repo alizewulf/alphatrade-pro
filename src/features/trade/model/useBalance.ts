@@ -11,4 +11,3 @@ export function useBalance() {
 
   return balance;
 }
-

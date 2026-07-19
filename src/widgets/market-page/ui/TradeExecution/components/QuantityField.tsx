@@ -1,4 +1,4 @@
-import TradeExecutionInput from "../../input";
+import TradeExecutionInput from "./TradeExecutionInput";
 
 export default function QuantityField({state, setState}:{state:any, setState: any}) {
   return (
