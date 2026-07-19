@@ -2,6 +2,7 @@ import type {
   ObjectType,
   StockStats,
   MarketSentimentItem,
+  CompanyData,
 } from "./interfaces.types";
 
 export const BTCObject: ObjectType = {
@@ -42,3 +43,9 @@ export const stockStatsData: StockStats[] = [
     value: "54.2M",
   },
 ];
+
+export const companyData:CompanyData = {
+  ceo: "Tim Cook",
+  founded: 1976,
+  employees: "161,000"
+}

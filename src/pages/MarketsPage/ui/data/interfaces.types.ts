@@ -6,17 +6,22 @@ export interface ObjectType {
 }
 
 export interface StockStats {
-    title: string,
-    value: string | number
+  title: string;
+  value: string | number;
 }
-
 
 export interface MarketSentimentItem {
   type: "Bullish" | "Bearish";
   value: number;
-  color: string
+  color: string;
 }
 
 export interface MarketSentimentProps {
   data: MarketSentimentItem[];
+}
+
+export interface CompanyData {
+  ceo: string;
+  founded: number;
+  employees: string;
 }
