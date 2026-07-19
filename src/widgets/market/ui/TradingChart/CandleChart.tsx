@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { useCandleSimulation } from "./hooks/useCandleSimulation";
 import { getChartMetrics } from "./model/candleSimulation";
-import type { ObjectType } from "@/pages/MarketsPage/ui/data/interfaces";
+import type { ObjectType } from "@/pages/MarketsPage/ui/data/interfaces.types";
 
 const CHART_WIDTH = 900;
 const CHART_HEIGHT = 240;
