@@ -10,6 +10,9 @@ import type { TradeOrder } from "./types";
 import { useAuth } from "@/app/providers/AuthContext";
 import { readDemoBalance } from "../lib/demoTrade";
 
+import { useEffect } from "react";
+
+
 interface TradeContextValue {
   orders: TradeOrder[];
   addOrder: (order: TradeOrder) => void;
@@ -27,6 +30,22 @@ export function TradeProvider({ children }: { children: ReactNode }) {
   const [balance, setBalance] = useState<number>(() => {
     return isDemo ? readDemoBalance() : user?.onBalance ?? 0;
   });
+
+  // Keep balance in sync if auth/demo flag changes.
+  useEffect(() => {
+    if (!user) return;
+
+    if (user.isDemo) {
+      setBalance(readDemoBalance());
+      return;
+    }
+
+    setBalance(user.onBalance);
+  }, [user?.isDemo, user?.onBalance]);
+
+
+
+
 
   const addOrder = (order: TradeOrder) => {
     setOrders((prev) => [...prev, order]);

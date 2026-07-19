@@ -10,44 +10,59 @@ export function useTrade() {
 
   const [input, setInput] = useState({
     assetSymbol: "BTC",
-    amount: "",
+    amount: "1",
   });
 
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const setAmount = (value: string) => {
-    const sanitized = value.replace(/[^0-9.]/g, "");
-    const parts = sanitized.split(".");
+const setAmount = (value: string) => {
+  const sanitized = value.replace(/[^0-9.]/g, "");
 
-    if (parts.length > 2) {
-      value = `${parts[0]}.${parts.slice(1).join("")}`;
-    }
-
-    if (parts.length === 2) {
-      value = `${parts[0] || "0"}.${parts[1].slice(0, 2)}`;
-    }
-
+  if (!sanitized) {
     setInput((prev) => ({
       ...prev,
-      amount: normalizeAmount(value),
+      amount: input.amount
     }));
-  };
+    return;
+  }
+
+  const parts = sanitized.split(".");
+
+  let normalized = sanitized;
+
+  if (parts.length > 2) {
+    normalized = `${parts[0]}.${parts.slice(1).join("")}`;
+  }
+
+  if (parts.length === 2) {
+    normalized = `${parts[0] || "0"}.${parts[1].slice(0, 2)}`;
+  }
+
+  setInput((prev) => ({
+    ...prev,
+    amount: normalizeAmount(normalized),
+  }));
+};
 
   const submit = () => {
     setIsSubmitting(true);
     setFeedback(null);
 
     try {
-      if (!input.amount || Number(input.amount) <= 0) {
+      const amountNum = Number(input.amount);
+
+      if (!input.amount || !Number.isFinite(amountNum) || amountNum <= 0) {
         setFeedback("Enter valid amount");
+        console.log(input.amount)
         return;
       }
+
 
       const result = submitDemoTrade({
         operationType,
         assetSymbol: input.assetSymbol,
-        amount: Number(input.amount),
+        amount: amountNum,
       });
 
       if (!result.ok) {
@@ -69,10 +84,8 @@ export function useTrade() {
 
       setFeedback(`${operationType} order submitted`);
 
-      setInput({
-        assetSymbol: "BTC",
-        amount: "",
-      });
+      // amount не сбрасываем после успешного submit
+      // (требование: введенное значение должно оставаться в поле)
     } finally {
       setIsSubmitting(false);
     }
