@@ -35,3 +35,10 @@ export interface CompanyNews {
   source: string,
   color: string
 }
+
+export interface RecentViewData{
+  abr: string,
+  companyName: string,
+  stock: number,
+  change: number
+}

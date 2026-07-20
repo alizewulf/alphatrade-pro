@@ -5,6 +5,7 @@ import TradeExecution from "@/widgets/market/ui/TradeExecution";
 import StockStats from "@/widgets/market/ui/StockStats";
 import MarketSentiment from "@/widgets/market/ui/MarketSentiment";
 import CompanyInfo from "@/widgets/market/ui/CompanyInfo";
+import RecentView from "@/widgets/market/ui/RecentView";
 
 function MarketPage() {
   const [changePercent, setChangePercent] = useState(0);
@@ -21,8 +22,9 @@ function MarketPage() {
            <StockStats object={stockStatsData}/>
            <MarketSentiment data={marketSentiment}/>
           </div>
-          <div className="flex gap-4 justify-between">
+          <div className="flex gap-4">
             <CompanyInfo data={companyData}/>
+            <RecentView/>
           </div>
         </div>
     </section>

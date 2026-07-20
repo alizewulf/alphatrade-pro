@@ -5,6 +5,7 @@ import type {
   MarketSentimentItem,
   CompanyData,
   CompanyNews,
+  RecentViewData,
 } from "./interfaces.types";
 
 export const BTCObject: ObjectType = {
@@ -60,7 +61,7 @@ export const companyNews: CompanyNews[] = [
     title: `Morgan Stanley reiterates
 "Overweight" rating on AAPL
 shares.`,
-color: "bg-positive/20"
+    color: "bg-positive/20",
   },
   {
     icon: NewsPaper,
@@ -69,6 +70,11 @@ color: "bg-positive/20"
     title: `Apple Vision Pro sees strong
 initial demand in enterprise
 sectors.`,
-color: "bg-[#ADC6FF]/20"
+    color: "bg-[#ADC6FF]/20",
   },
+];
+
+export const recentView: RecentViewData[] = [
+  { abr: "TSLA", companyName: "Tesla Inc.", stock: 171.05, change: -2.1 },
+  { abr: "NVDA", companyName: "Nvidia Corp", stock: 875.28, change: 4.12 },
 ];
