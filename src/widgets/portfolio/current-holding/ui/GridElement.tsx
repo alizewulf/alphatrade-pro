@@ -1,4 +1,4 @@
-import type { GridElementProps } from "./types";
+import type { GridElementProps } from "../types";
 
 function GridElement({
   symbol,
