@@ -1,12 +1,10 @@
-import FilterSVG from "../recent-transactions/icons/FilterSVG";
-import TitleButton from "../recent-transactions/ui/Button";
-
 interface TitleContainerProps {
   container: "holding" | "transaction";
+  filterButton?: React.ReactNode;
   exportButton?: React.ReactNode;
 }
 
-function TitleContainer({ container, exportButton }: TitleContainerProps) {
+function TitleContainer({ container, filterButton, exportButton }: TitleContainerProps) {
   return (
     <div className="flex font-inter justify-between p-6 items-center">
       <h3 className="font-semibold text-xl leading-7 text-[#DAE2FD]">
@@ -19,7 +17,7 @@ function TitleContainer({ container, exportButton }: TitleContainerProps) {
       )}
       {container === "transaction" && (
         <div className="flex gap-4 text-white">
-          <TitleButton><FilterSVG/>Filter</TitleButton>
+          {filterButton}
           {exportButton}
         </div>
       )}
