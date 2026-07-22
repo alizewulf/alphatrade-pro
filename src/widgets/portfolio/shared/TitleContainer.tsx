@@ -1,6 +1,6 @@
-import ExportSVG from "../../recent-transactions/icons/ExportSVG";
-import FilterSVG from "../../recent-transactions/icons/FilterSVG";
-import TitleButton from "../../recent-transactions/ui/Button";
+import ExportSVG from "../recent-transactions/icons/ExportSVG";
+import FilterSVG from "../recent-transactions/icons/FilterSVG";
+import TitleButton from "../recent-transactions/ui/Button";
 
 interface TitleContainerProps {
   container: "holding" | "transaction";

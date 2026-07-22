@@ -1,7 +1,5 @@
 import Container from "@/shared/ui/container";
-import type { TopMoveItemProps } from "./types/topMoveTypes";
-
-
+import type { TopMoveItemProps } from "../../types/topMoveTypes";
 
 function TopMoveItem({ type, items, gap }: TopMoveItemProps) {
   const isGainer = type === "gainer";

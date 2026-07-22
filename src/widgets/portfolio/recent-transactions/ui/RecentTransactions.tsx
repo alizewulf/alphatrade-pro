@@ -1,35 +1,11 @@
-import TitleContainer from "@/widgets/portfolio/ui/shared/TitleContainer";
+import TitleContainer from "@/widgets/portfolio/shared/TitleContainer";
 import CartSVG from "../icons/CartSVG";
-import TransactionItem from "./transaction-item/TransactionItem";
+import TransactionItem from "./TransactionItem";
 import type { PortfolioTransaction } from "@/entities/portfolio";
+import { DEFAULT_TRANSACTIONS } from "../data/transactions";
 
 function RecentTransactions({ transactions }: { transactions?: PortfolioTransaction[] }) {
-  const rows = transactions ?? [
-    {
-      id: "default-1",
-      type: "Buy",
-      symbol: "AMD",
-      amount: 12313,
-      date: "Oct 23, 2:45 PM",
-      status: "completed",
-    },
-    {
-      id: "default-2",
-      type: "Reinvested",
-      symbol: "DIV",
-      amount: 7.71,
-      date: "Nov 04, 10:15 AM",
-      status: "reinvested",
-    },
-    {
-      id: "default-3",
-      type: "Buy",
-      symbol: "TSLA",
-      amount: 250,
-      date: "Dec 11, 9:05 AM",
-      status: "completed",
-    },
-  ];
+  const rows = transactions ?? DEFAULT_TRANSACTIONS;
 
   return (
     <div className="flex bg-[#1E293B] gap-6 flex-col">
@@ -51,4 +27,3 @@ function RecentTransactions({ transactions }: { transactions?: PortfolioTransact
 }
 
 export default RecentTransactions;
-

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import TitleContainer from "@/widgets/portfolio/ui/shared/TitleContainer";
-import GridWrapper from "./grid/GridWrapper";
-import GridElement from "./grid/GridElement";
+import TitleContainer from "@/widgets/portfolio/shared/TitleContainer";
+import GridWrapper from "./GridWrapper";
+import GridElement from "./GridElement";
 import { readDemoTransactions } from "@/features/trade/lib/demoTrade";
-import type { Holding } from "./grid/types";
+import type { Holding } from "../types";
 
 const DEFAULT_HOLDINGS: Holding[] = [
   {

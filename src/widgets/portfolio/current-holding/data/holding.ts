@@ -1,4 +1,4 @@
-import type { Holding } from "../grid/types";
+import type { Holding } from "../types";
 
 export const holdings: Holding[] = [
   {

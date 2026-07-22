@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 import Container from "@/shared/ui/container";
 
-import XIcon from "./icons/XIcon";
+import XIcon from "../../icons/XIcon";
 
 import BuyButton from "@/features/trade/buy-order/ui/BuyButton";
 import SellButton from "@/features/trade/sell-order/ui/SellButton";
@@ -47,17 +47,17 @@ function QuickTrade() {
           <Container className="flex w-85 h-85 flex-col gap-4 overflow-hidden p-0! backdrop-blur-sm">
             <div
               className="
-              flex items-center justify-between 
-              rounded-tl-lg rounded-tr-lg 
-              bg-[#ADC6FF] 
-              px-4 py-3 
+              flex items-center justify-between
+              rounded-tl-lg rounded-tr-lg
+              bg-[#ADC6FF]
+              px-4 py-3
               font-inter
             "
             >
               <span
                 className="
-                text-xs font-bold 
-                tracking-[0.6px] 
+                text-xs font-bold
+                tracking-[0.6px]
                 text-[#002E6A]
                 leading-3
               "
@@ -90,14 +90,13 @@ function QuickTrade() {
             <div className="flex flex-col gap-2 px-4">
               <span
                 className="
-                text-paragraph 
-                text-base 
+                text-paragraph
+                text-base
                 leading-6
               "
               >
                 Asset
               </span>
-
               <div className="relative w-full">
                 <input
                   value={trade.input.assetSymbol}
@@ -108,11 +107,11 @@ function QuickTrade() {
                   }
                   placeholder="Select asset"
                   className="
-                    h-10 
-                    w-full 
-                    rounded-sm 
-                    bg-[#060E20] 
-                    text-white 
+                    h-10
+                    w-full
+                    rounded-sm
+                    bg-[#060E20]
+                    text-white
                     placeholder:text-paragraph
                   "
                 />
@@ -120,14 +119,14 @@ function QuickTrade() {
                 {showAssetList && (
                   <div
                     className="
-                    absolute 
-                    z-20 
-                    mt-1 
-                    w-full 
-                    rounded-sm 
-                    border 
-                    border-white/10 
-                    bg-[#060E20] 
+                    absolute
+                    z-20
+                    mt-1
+                    w-full
+                    rounded-sm
+                    border
+                    border-white/10
+                    bg-[#060E20]
                     shadow-lg
                   "
                   >
@@ -136,16 +135,16 @@ function QuickTrade() {
                         key={asset.symbol}
                         type="button"
                         className="
-                          flex 
-                          w-full 
-                          items-center 
-                          justify-between 
-                          px-3 
-                          py-2 
-                          text-left 
-                          text-sm 
+                          flex
+                          w-full
+                          items-center
+                          justify-between
+                          px-3
+                          py-2
+                          text-left
+                          text-sm
                           text-[#DAE2FD]
-                          transition 
+                          transition
                           hover:bg-white/10
                         "
                         onMouseDown={(e) => e.preventDefault()}
@@ -189,15 +188,15 @@ function QuickTrade() {
               <button
                 type="button"
                 className="
-                  w-full 
-                  rounded-lg 
-                  bg-[#ADC6FF] 
-                  px-3 
-                  py-3 
-                  font-bold 
-                  text-[#002E6A] 
-                  cursor-pointer 
-                  disabled:cursor-not-allowed 
+                  w-full
+                  rounded-lg
+                  bg-[#ADC6FF]
+                  px-3
+                  py-3
+                  font-bold
+                  text-[#002E6A]
+                  cursor-pointer
+                  disabled:cursor-not-allowed
                   disabled:opacity-70
                 "
                 onClick={trade.submit}
@@ -253,27 +252,27 @@ function QuickTrade() {
             ease: "easeOut",
           }}
           className="
-            absolute 
-            -top-2 
-            -right-8 
-            flex 
-            h-10 
-            w-10 
-            cursor-pointer 
-            items-center 
-            justify-center 
-            rounded-bl-full 
-            rounded-tl-full 
+            absolute
+            -top-2
+            -right-8
+            flex
+            h-10
+            w-10
+            cursor-pointer
+            items-center
+            justify-center
+            rounded-bl-full
+            rounded-tl-full
             bg-[#ADC6FF]
           "
           onClick={() => setHidden(false)}
         >
           <span
             className="
-            text-xs 
-            font-bold 
-            tracking-[0.6px] 
-            text-[#002E6A] 
+            text-xs
+            font-bold
+            tracking-[0.6px]
+            text-[#002E6A]
             leading-3
           "
           >

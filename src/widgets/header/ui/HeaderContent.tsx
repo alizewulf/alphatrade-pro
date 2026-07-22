@@ -6,7 +6,7 @@ import { useAuth } from "@/app/providers/AuthContext";
 import { DEFAULT_AFTER_LOGOUT } from "@/app/routes";
 import HeadingTitle from "./HeadingTitle/HeadingTitleWrapper";
 import Nav from "./nav/Nav";
-import WalletSVG from "@/widgets/portfolio/portfolio-chart/ui/icons/WalletSVG";
+import WalletSVG from "@/widgets/portfolio/portfolio-chart/icons/WalletSVG";
 
 export type HeaderVariants = "primary" | "secondary";
 interface HeaderProps {

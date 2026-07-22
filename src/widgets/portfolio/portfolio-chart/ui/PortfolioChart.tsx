@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { generateData, type DataPoint } from "../generator";
-import { DAYS, MONTHS } from "../datesConfig";
+import { generateData, type DataPoint } from "../data/generator";
+import { DAYS, MONTHS } from "../data/datesConfig";
 import PortfolioAreaChart from "./PortfolioAreaChartSVG";
 import UserBalanceContainer from "./UserBalanceContainer";
 import Indicator from "./Indicator";
