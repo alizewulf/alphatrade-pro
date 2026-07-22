@@ -6,7 +6,7 @@ The project provides a dashboard experience with portfolio analytics, market ove
 
 ## Preview
 
-Demo link will be added soon.
+https://alizewulf.github.io/alphatrade-pro/
 
 ## Features
 
