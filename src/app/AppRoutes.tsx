@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
-        path: ROUTE_PATHS.home.replace("/", ""),
+        index: true,
         element: (
           <PublicOnly>
             <WelcomePage />
@@ -29,8 +29,8 @@ export const router = createBrowserRouter([
         },
       },
       {
-        index: true,
-        element: <Navigate to={ROUTE_PATHS.home} replace />,
+        path: ROUTE_PATHS.home.replace("/", ""),
+        element: <Navigate to="/" replace />,
       },
       {
         path: ROUTE_PATHS.login.replace("/", ""),

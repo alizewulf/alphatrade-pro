@@ -70,14 +70,20 @@ function PortfolioPage() {
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bgcolor text-white">
-        <p>Loading profile...</p>
+        <div className="flex flex-col items-center gap-6">
+          <Skeleton height={48} width={280} borderRadius={16} />
+          <Skeleton height={24} width={180} borderRadius={12} />
+        </div>
       </div>
     );
   }
   if (!portfolio) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bgcolor text-white">
-        <p>Loading portfolio...</p>
+        <div className="flex flex-col items-center gap-6">
+          <Skeleton height={320} width={640} borderRadius={24} />
+          <Skeleton height={120} width={640} borderRadius={20} />
+        </div>
       </div>
     );
   }
