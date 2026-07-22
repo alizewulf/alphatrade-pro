@@ -1,6 +1,6 @@
-function TitleButton({children}:{children:React.ReactNode}) {
+function TitleButton({children, onClick}:{children:React.ReactNode; onClick?: () => void}) {
   return (
-    <button className="flex gap-2 items-center text-base font-inter leading-6 text-paragraph cursor-pointer">{children}</button>
+    <button onClick={onClick} className="flex gap-2 items-center text-base font-inter leading-6 text-paragraph cursor-pointer">{children}</button>
   )
 }
 

@@ -3,13 +3,17 @@ import CartSVG from "../icons/CartSVG";
 import TransactionItem from "./TransactionItem";
 import type { PortfolioTransaction } from "@/entities/portfolio";
 import { DEFAULT_TRANSACTIONS } from "../data/transactions";
+import { ExportTransactionsButton } from "@/features/pdf-export";
 
 function RecentTransactions({ transactions }: { transactions?: PortfolioTransaction[] }) {
   const rows = transactions ?? DEFAULT_TRANSACTIONS;
 
   return (
     <div className="flex bg-[#1E293B] gap-6 flex-col">
-      <TitleContainer container="transaction" />
+      <TitleContainer
+        container="transaction"
+        exportButton={<ExportTransactionsButton transactions={rows} />}
+      />
       <div className="flex px-6 pb-6 rounded-lg flex-col gap-4">
         {rows.map((tx) => (
           <TransactionItem
