@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router";
 import { useAuth } from "@/app/providers/AuthContext";
-import { ROUTE_PATHS } from "@/app/routes";
+import { DEFAULT_UNAUTH_REDIRECT } from "@/app/routes";
 
 interface RequireAuthProps {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ function RequireAuth({ children }: RequireAuthProps) {
   const location = useLocation();
 
   if (!isAuth) {
-    const redirectTo = `${ROUTE_PATHS.login}?redirect=${encodeURIComponent(location.pathname + location.search)}`;
+    const redirectTo = `${DEFAULT_UNAUTH_REDIRECT}?redirect=${encodeURIComponent(location.pathname + location.search)}`;
     return <Navigate to={redirectTo} replace />;
   }
 

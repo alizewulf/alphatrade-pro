@@ -10,4 +10,5 @@ export const ROUTE_PATHS = {
 
 export const DEFAULT_AUTH_REDIRECT = ROUTE_PATHS.dashboard;
 export const DEFAULT_PUBLIC_REDIRECT = ROUTE_PATHS.dashboard;
+export const DEFAULT_UNAUTH_REDIRECT = ROUTE_PATHS.home;
 export const DEFAULT_AFTER_LOGOUT = ROUTE_PATHS.home;
