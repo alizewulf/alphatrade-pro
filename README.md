@@ -40,7 +40,7 @@ https://alizewulf.github.io/alphatrade-pro/
 Clone the repository:
 
 ```bash
-git clone https://github.com/username/alphatrade-pro.git
+git clone https://github.com/alizewulf/alphatrade-pro.git
 ```
 
 Install dependencies:
