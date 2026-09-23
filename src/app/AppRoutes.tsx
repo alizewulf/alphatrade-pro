@@ -112,4 +112,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+], { basename: "/alphatrade-pro" });
